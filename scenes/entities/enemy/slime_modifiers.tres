@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EnemyModifiers" load_steps=2 format=3 uid="uid://cccmb5ymc5f2j"]
+
+[ext_resource type="Script" path="res://scripts/entities/enemy/enemy_modifiers.gd" id="1_jarh5"]
+
+[resource]
+script = ExtResource("1_jarh5")
+speed = 60.0

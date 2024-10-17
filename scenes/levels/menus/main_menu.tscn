@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk8n6iu4shg81"]
+
+[ext_resource type="Script" path="res://scripts/levels/menus/main_menu.gd" id="1_u50nr"]
+[ext_resource type="Texture2D" uid="uid://cr8414x1rrqc6" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/background-1.png" id="2_ahb4e"]
+[ext_resource type="Texture2D" uid="uid://drjyy8vds0fwi" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/background-2.png" id="2_mbg3s"]
+[ext_resource type="LabelSettings" path="res://test.tres" id="4_divym"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u50nr")
+
+[node name="Background-1" type="Sprite2D" parent="."]
+position = Vector2(584, 326)
+scale = Vector2(1.445, 1.07333)
+texture = ExtResource("2_ahb4e")
+
+[node name="Background" type="TextureRect" parent="Background-1"]
+offset_left = -401.0
+offset_top = -293.0
+offset_right = 395.0
+offset_bottom = 347.0
+texture = ExtResource("2_mbg3s")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 190.0
+offset_right = 639.0
+offset_bottom = 214.0
+text = "Primal"
+label_settings = ExtResource("4_divym")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 252.0
+offset_right = 568.0
+offset_bottom = 318.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

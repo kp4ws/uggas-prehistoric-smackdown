@@ -11,16 +11,20 @@ config_version=5
 [application]
 
 config/name="Jumper"
-run/main_scene="res://scenes/levels/level1.tscn"
+run/main_scene="res://scenes/levels/menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://misc/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://misc/default_bus_layout.tres"
 
 [autoload]
 
-GameManager="*res://scenes/game_manager.tscn"
-SceneManager="*res://scenes/scene_manager.tscn"
-MusicPlayer="*res://scenes/music_player.tscn"
-Hud="*res://scenes/hud.tscn"
+GameManager="*res://scenes/managers/game_manager.tscn"
+SceneManager="*res://scenes/managers/scene_manager.tscn"
+GlobalSignals="*res://scripts/globals/global_signals.gd"
+MusicManager="*res://scenes/managers/music_manager.tscn"
 
 [input]
 
