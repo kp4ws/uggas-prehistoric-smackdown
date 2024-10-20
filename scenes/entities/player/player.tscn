@@ -1,10 +1,10 @@
 [gd_scene load_steps=25 format=3 uid="uid://bip74h5coac72"]
 
 [ext_resource type="Script" path="res://scripts/entities/player/player.gd" id="1_jvbnr"]
-[ext_resource type="Resource" uid="uid://sue4php4wwn2" path="res://scenes/entities/player/player_modifiers.tres" id="2_pdtmp"]
-[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://scenes/entities/health.tscn" id="3_h7icf"]
+[ext_resource type="Resource" uid="uid://sue4php4wwn2" path="res://scenes/entities/player/player_stats.tres" id="2_233ew"]
 [ext_resource type="Texture2D" uid="uid://ben41uq67d2tm" path="res://asset_packs/superpowers/prehistoric-platformer/characters/playable/caverman.png" id="3_kjeej"]
 [ext_resource type="PackedScene" uid="uid://bybq6sm44oarm" path="res://scenes/entities/player/respawn_timer.tscn" id="4_upy03"]
+[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://scenes/entities/health.tscn" id="5_b6ta4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gq54n"]
 atlas = ExtResource("3_kjeej")
@@ -149,20 +149,29 @@ height = 50.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
+scale = Vector2(0.6, 0.6)
 collision_layer = 2
 script = ExtResource("1_jvbnr")
-Modifiers = ExtResource("2_pdtmp")
+stats = ExtResource("2_233ew")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_66o3l")
 animation = &"idle"
 frame_progress = 0.162991
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(-2.85714, -7)
 shape = SubResource("CapsuleShape2D_p2evc")
 
-[node name="Health" parent="." instance=ExtResource("3_h7icf")]
+[node name="Timers" type="Node" parent="."]
 
-[node name="PlayerRespawnTimer" parent="." instance=ExtResource("4_upy03")]
+[node name="RespawnTimer" parent="Timers" instance=ExtResource("4_upy03")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Health" parent="." instance=ExtResource("5_b6ta4")]
+position = Vector2(1100.43, 231.481)
+entity_stats = ExtResource("2_233ew")

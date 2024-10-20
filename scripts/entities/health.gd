@@ -1,21 +1,32 @@
 extends Node2D
+class_name Health
 
-@export var max_health = 100
-var current_health : int = 100
-signal take_life()
-
-#TODO Need to send global signal for when health changes, in order to update HUD
+@export var entity_stats : EntityStats
 
 func _ready():
-	current_health = max_health
+	if not entity_stats:
+		printerr('Health has no entity stats')
+	GlobalSignals.start_game.connect(_reset_health)
+	if entity_stats.reset_on_ready:
+		_reset_health()
+	
+func _reset_health():
+	entity_stats.health = entity_stats.max_health
 
-func take_damage(damageAmount):
-	if current_health == 0:
+func get_health():
+	return entity_stats.health
+
+func take_damage(damage):
+	#If entity is already dead, don't do anything
+	if entity_stats.health == 0:
 		return
 	
-	current_health = max(0, current_health - damageAmount)
-	print('Health remaining: ', current_health)
+	entity_stats.health = max(0, entity_stats.health - damage)
+	entity_stats.health_changed.emit()
 	
-	#Since we clamped health, we can just check equal to
-	if current_health == 0:
-			take_life.emit()
+	if entity_stats.health == 0:
+		entity_stats.entity_died.emit()
+
+func add_health(value):
+	entity_stats.health += value
+	entity_stats.health_changed.emit()

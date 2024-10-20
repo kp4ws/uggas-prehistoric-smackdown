@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="PlayerModifiers" load_steps=2 format=3 uid="uid://sue4php4wwn2"]
-
-[ext_resource type="Script" path="res://scripts/entities/player/player_modifiers.gd" id="1_hgicv"]
-
-[resource]
-script = ExtResource("1_hgicv")
-jump_velocity = -300.0
-speed = 130.0

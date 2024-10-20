@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://sue4php4wwn2"]
+
+[ext_resource type="Script" path="res://scripts/entities/player/player_stats.gd" id="1_hgicv"]
+
+[resource]
+script = ExtResource("1_hgicv")
+jump_velocity = -300.0
+speed = 130.0
+max_health = 100
+health = 100
+reset_on_ready = false

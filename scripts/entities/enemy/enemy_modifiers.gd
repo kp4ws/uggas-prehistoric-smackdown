@@ -1,2 +1,0 @@
-extends EntityModifiers
-class_name EnemyModifiers

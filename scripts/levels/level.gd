@@ -6,4 +6,4 @@ func _ready():
 		printerr('Relics container not in level')
 		return
 		
-	GameManager.initiate_level(Relics.get_child_count())
+	#GameManager.initiate_level(Relics.get_child_count())
