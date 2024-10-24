@@ -1,62 +1,44 @@
-extends CharacterBody2D
+#This node is the host of the state machine
+class_name Player extends CharacterBody2D
+
+#In Godot, we can access the root node of the scene the state is part of using the owner property.
 
 #Player modifiers
 @export var stats : PlayerStats
-@onready var animation = %Animation
-@onready var collision_shape = %Hitbox
+@onready var animation_player = $AnimatedSprite2D
+@onready var collision_shape = $CollisionShape2D
 #@onready var respawn_timer = %RespawnTimer
 
 #State
-var is_dead = false
+#var is_dead = false
+#
 
 func _ready():
-	stats.entity_died.connect(_on_die)
-
-func _on_die():
-	is_dead = true
-	collision_shape.queue_free()
+	stats.health_changed.connect(func():
+		print('health changed'))
 
 func _physics_process(delta):
-	#TODO player should still fall even if dead
-	#Ignore player movement if not alive (gravity still applies)
-	if is_dead:
-		#move_and_slide()
-		animation.stop()
-		return
-		
-	move(delta)
-	
-func move(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += stats.gravity * delta
-	
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = stats.jump_velocity
+	_flip_sprite()
 
-	#Get input directions: -1, 0, 1
-	var direction = Input.get_axis("move_left", "move_right")
-	
+func _flip_sprite():
+	#-1, 0, 1
+	var input_direction_x := Input.get_axis("move_left", "move_right")
 	#Flip the sprite
-	if direction > 0:
-		animation.flip_h = false
-	elif direction < 0:
-		animation.flip_h = true
-	
-	#Play animations
-	if is_on_floor():
-		if direction == 0:
-			animation.play("idle")
-		else:
-			animation.play("run")
-	else:
-		animation.play("jump")
-		
-	#Apply movement
-	if direction:
-		velocity.x = direction * stats.speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, stats.speed)
+	if input_direction_x > 0:
+		animation_player.flip_h = false
+	elif input_direction_x < 0:
+		animation_player.flip_h = true
 
-	move_and_slide()
+#TODO I think these connections should now be in the state machine class ?
+#func _ready():
+	#stats.entity_died.connect(_on_die)
+	#stats.health_changed.connect(_on_hurt)
+#
+#func _on_hurt():
+	##TODO other animation overriding so this one doesn't play
+	#animation.play('hurt')
+#
+#func _on_die():
+	#is_dead = true
+	#animation.play('death')	
+	#collision_shape.queue_free()

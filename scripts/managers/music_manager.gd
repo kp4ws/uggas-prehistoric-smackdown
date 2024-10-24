@@ -6,7 +6,8 @@ extends Node
 @export var game_music: AudioStreamMP3 = null
 
 func _ready():
-	play_menu_music()
+	GlobalSignals.start_game.connect(play_game_music)
+	#play_menu_music()
 
 func play_menu_music():
 	audio_player.stop()

@@ -360,6 +360,7 @@ frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2.85714, -7)
 shape = SubResource("CapsuleShape2D_p2evc")
 
@@ -374,7 +375,6 @@ position = Vector2(1100.43, 231.481)
 entity_stats = ExtResource("2_233ew")
 
 [node name="StateMachine" parent="." instance=ExtResource("6_e0bmk")]
-unique_name_in_owner = true
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("7_0wdyv")
