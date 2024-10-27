@@ -7,6 +7,8 @@ const JUMP = 'Jump'
 const FALL = 'Fall'
 const HURT = 'Hurt'
 const DEATH = 'Death'
+const ROLL = 'Roll'
+const ATTACK = 'Attack'
 
 var player: Player
 

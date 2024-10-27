@@ -1,18 +1,19 @@
-[gd_scene load_steps=56 format=3 uid="uid://bip74h5coac72"]
+[gd_scene load_steps=57 format=3 uid="uid://bip74h5coac72"]
 
 [ext_resource type="Script" path="res://scripts/entities/player/player.gd" id="1_jvbnr"]
 [ext_resource type="Resource" uid="uid://sue4php4wwn2" path="res://scenes/entities/player/player_stats.tres" id="2_233ew"]
 [ext_resource type="Texture2D" uid="uid://ben41uq67d2tm" path="res://asset_packs/superpowers/prehistoric-platformer/characters/playable/caverman.png" id="3_kjeej"]
 [ext_resource type="PackedScene" uid="uid://bybq6sm44oarm" path="res://scenes/entities/player/respawn_timer.tscn" id="4_upy03"]
 [ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://scenes/entities/health.tscn" id="5_b6ta4"]
-[ext_resource type="PackedScene" uid="uid://bwjmo8koav4rg" path="res://state_machine.tscn" id="6_e0bmk"]
+[ext_resource type="PackedScene" uid="uid://bwjmo8koav4rg" path="res://scenes/entities/state_machine.tscn" id="6_e0bmk"]
 [ext_resource type="Script" path="res://scripts/entities/player/states/player_idle.gd" id="7_0wdyv"]
 [ext_resource type="Script" path="res://scripts/entities/player/states/player_run.gd" id="8_xtyo2"]
 [ext_resource type="Script" path="res://scripts/entities/player/states/player_jump.gd" id="9_1rg5e"]
 [ext_resource type="Script" path="res://scripts/entities/player/states/player_fall.gd" id="10_7cqqy"]
 [ext_resource type="Script" path="res://scripts/entities/player/states/player_hurt.gd" id="11_gbvu7"]
 [ext_resource type="Script" path="res://scripts/entities/player/states/player_death.gd" id="12_lvuiu"]
-[ext_resource type="Script" path="res://scenes/entities/player/player_roll.gd" id="13_732cv"]
+[ext_resource type="Script" path="res://scripts/entities/player/states/player_roll.gd" id="13_2t6rj"]
+[ext_resource type="Script" path="res://scripts/entities/player/states/player_attack.gd" id="14_0c6qj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcg2k"]
 atlas = ExtResource("3_kjeej")
@@ -308,7 +309,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aj8op")
 }],
-"loop": true,
+"loop": false,
 "name": &"roll",
 "speed": 9.0
 }, {
@@ -354,9 +355,9 @@ script = ExtResource("1_jvbnr")
 stats = ExtResource("2_233ew")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0, -11.6667)
 sprite_frames = SubResource("SpriteFrames_66o3l")
-animation = &"run"
+animation = &"roll"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.85714, -7)
@@ -367,6 +368,9 @@ shape = SubResource("CapsuleShape2D_p2evc")
 [node name="RespawnTimer" parent="Timers" instance=ExtResource("4_upy03")]
 unique_name_in_owner = true
 visible = false
+
+[node name="InvincibilityTimer" type="Timer" parent="Timers"]
+one_shot = true
 
 [node name="Health" parent="." instance=ExtResource("5_b6ta4")]
 position = Vector2(1100.43, 231.481)
@@ -394,4 +398,7 @@ script = ExtResource("11_gbvu7")
 script = ExtResource("12_lvuiu")
 
 [node name="Roll" type="Node" parent="StateMachine"]
-script = ExtResource("13_732cv")
+script = ExtResource("13_2t6rj")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("14_0c6qj")

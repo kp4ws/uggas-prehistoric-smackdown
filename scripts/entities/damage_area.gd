@@ -3,26 +3,40 @@ class_name DamageArea
 
 @export var damage_amount = 25
 @export var is_killzone: bool = false
+var target_health: Health = null 
 
 func _ready():
 	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 
-func _on_body_entered(body):
+func _process(delta):
+	#If still touching target then keep dealing damage
+	if target_health:
+		target_health.take_damage(self, damage_amount)
+
+func _on_body_entered(body: Node2D):
 	#NOTE The mask property in CollisionObject2D should be set to the layer to damage
 	
 	#NOTE class_name must be Health
-	var health_node = body.get_node('Health')
+	target_health = body.get_node('Health')
 	
-	if not health_node:
+	if not target_health:
 		printerr('Entity: ', body.name, 'is missing Health node')
 		return
 	
-	health_node.take_damage(self, damage_amount)
+	target_health.take_damage(self, damage_amount)
 	
 	if is_killzone:
-		_handle_killzone(health_node)
+		_handle_killzone(target_health)
 
-func _handle_killzone(health_node):
+func _on_body_exited(body: Node2D):
+	if not target_health:
+		return
+	
+	if body == target_health.owner:
+		target_health = null
+
+func _handle_killzone(target_health: Health):
 	if not $KillzoneTimer:
 		print('Killzone Timer is not attached to DamageArea2D')
 		return
@@ -30,10 +44,11 @@ func _handle_killzone(health_node):
 	#Start reload timer and damage player
 	Engine.time_scale = 0.3
 	
-	if health_node.get_health() == 0:
+	if target_health.get_health() == 0:
+		print('health is 0')
 		#If player is dead, don't respawn
 		return
-	
+	print('health is not 0')
 	$KillzoneTimer.start()
 
 func _on_killzone_timer_timeout():

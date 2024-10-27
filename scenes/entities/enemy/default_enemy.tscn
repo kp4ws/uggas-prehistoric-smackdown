@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://cccmb5ymc5f2j" path="res://scenes/entities/enemy/default_enemy_modifiers.tres" id="2_jt38m"]
 [ext_resource type="Script" path="res://scripts/entities/damage_area.gd" id="3_h25y3"]
 [ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://scenes/entities/health.tscn" id="4_8nap4"]
-[ext_resource type="Script" path="res://state_machine.gd" id="5_7s5oq"]
+[ext_resource type="Script" path="res://scenes/entities/state_machine.gd" id="5_7s5oq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t68dm"]
 animations = [{

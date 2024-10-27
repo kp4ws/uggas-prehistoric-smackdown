@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://b7x6a0k526v1y"]
+
+[ext_resource type="Script" path="res://scripts/entities/enemy/enemy_stats.gd" id="1_i87il"]
+
+[resource]
+script = ExtResource("1_i87il")
+invincible = false
+speed = 60.0
+max_health = 100
+health = 100
+reset_on_ready = true

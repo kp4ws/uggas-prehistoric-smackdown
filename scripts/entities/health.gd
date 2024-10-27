@@ -17,6 +17,10 @@ func get_health():
 	return entity_stats.health
 
 func take_damage(attacker, damage):
+	#If invincibility flag set, then don't take damage
+	if entity_stats.invincible:
+		return
+
 	#If entity is already dead, don't do anything
 	if entity_stats.health == 0:
 		return
