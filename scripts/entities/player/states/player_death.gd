@@ -8,3 +8,5 @@ func enter(previous_state_path: String, data := {}) -> void:
 	
 func physics_update(delta: float) -> void:
 	player.animation_player.flip_h = sprite_flip
+	player.velocity.y += player.stats.gravity * delta
+	player.move_and_slide()

@@ -13,5 +13,5 @@ class_name EntityStats
 #Enemy entities typically should have this set to true
 @export var reset_on_ready: bool = false
 
-signal health_changed #TODO Will need to separate this into whether health was added or decreased
+signal health_changed(attacker) #TODO Will need to separate this into whether health was added or decreased
 signal entity_died

@@ -11,10 +11,11 @@ func _ready():
 	player_stats.score_changed.connect(_update_score)
 
 func _initiate_hud():
-	_update_lives()
+	_update_lives(0)
 	_update_score()
-	
-func _update_lives():
+
+#TODO health_changed emits the attacker who did the damage. This isn't needed in this function
+func _update_lives(health): 
 	#TODO Will probably have hearts instead of health bar for my game
 	lives_label.text = "Health: " + str(player_stats.health)
 

@@ -16,13 +16,13 @@ func _reset_health():
 func get_health():
 	return entity_stats.health
 
-func take_damage(damage):
+func take_damage(attacker, damage):
 	#If entity is already dead, don't do anything
 	if entity_stats.health == 0:
 		return
 	
 	entity_stats.health = max(0, entity_stats.health - damage)
-	entity_stats.health_changed.emit()
+	entity_stats.health_changed.emit(attacker)
 	
 	if entity_stats.health == 0:
 		entity_stats.entity_died.emit()

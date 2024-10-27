@@ -1,10 +1,13 @@
 extends PlayerState
 
+@export var roll_velocity: Vector2 = Vector2.ZERO
+
 func enter(previous_state_path: String, data := {}) -> void:
-	player.velocity.x = 0.0
-	player.animation_player.play('idle')
+	player.animation_player.play('roll')
 		
 func physics_update(delta: float) -> void:
+	var input_direction_x := Input.get_axis('move_left', 'move_right')
+	player.velocity.x = player.stats.speed * input_direction_x
 	player.velocity.y += player.stats.gravity * delta
 	player.move_and_slide()
 	
@@ -12,9 +15,7 @@ func physics_update(delta: float) -> void:
 		finished.emit(FALL)
 	elif Input.is_action_just_pressed("jump"):
 		finished.emit(JUMP)
-		
-		#XOR operation left XOR right key pressed
-	elif int(Input.is_action_pressed("move_left")) ^ int(Input.is_action_pressed("move_right")):
-		#await timeout period so if quickly moving left and right, sprite doesn't jitter
-		#await get_tree().create_timer(0.03).timeout 
+	elif is_equal_approx(input_direction_x, 0.0):
+		finished.emit(IDLE)
+	else:
 		finished.emit(RUN)

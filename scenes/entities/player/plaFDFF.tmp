@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bip74h5coac72"]
+[gd_scene load_steps=55 format=3 uid="uid://bip74h5coac72"]
 
 [ext_resource type="Script" path="res://scripts/entities/player/player.gd" id="1_jvbnr"]
 [ext_resource type="Resource" uid="uid://sue4php4wwn2" path="res://scenes/entities/player/player_stats.tres" id="2_233ew"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://scripts/entities/player/states/player_fall.gd" id="10_7cqqy"]
 [ext_resource type="Script" path="res://scripts/entities/player/states/player_hurt.gd" id="11_gbvu7"]
 [ext_resource type="Script" path="res://scripts/entities/player/states/player_death.gd" id="12_lvuiu"]
-[ext_resource type="Script" path="res://scenes/entities/player/player_roll.gd" id="13_732cv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcg2k"]
 atlas = ExtResource("3_kjeej")
@@ -356,7 +355,7 @@ stats = ExtResource("2_233ew")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_66o3l")
-animation = &"run"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.85714, -7)
@@ -392,6 +391,3 @@ script = ExtResource("11_gbvu7")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("12_lvuiu")
-
-[node name="Roll" type="Node" parent="StateMachine"]
-script = ExtResource("13_732cv")

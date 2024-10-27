@@ -17,7 +17,7 @@ func _on_body_entered(body):
 		printerr('Entity: ', body.name, 'is missing Health node')
 		return
 	
-	health_node.take_damage(damage_amount)
+	health_node.take_damage(self, damage_amount)
 	
 	if is_killzone:
 		_handle_killzone(health_node)
