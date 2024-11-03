@@ -26,8 +26,8 @@ func _connect_damage_transition(attacker):
 func enter(_previous_state_path: String, _data := {}) -> void:
 	player.trigger_invincible() #alternative is having invincibility only in this function
 	player.velocity = Vector2(-player.stats.knockback_strength.x * knockback_direction, -player.stats.knockback_strength.y)
-	player.animation_player.play('hurt')
-	sprite_flip = player.animation_player.flip_h
+	player.animated_sprite.play('hurt')
+	sprite_flip = player.animated_sprite.flip_h
 	await get_tree().create_timer(hurt_time).timeout
 	_on_hurt_timer_timeout()
 	

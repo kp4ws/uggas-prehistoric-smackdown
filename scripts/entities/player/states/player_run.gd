@@ -1,7 +1,7 @@
 extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
-	player.animation_player.play('run')
+	player.animated_sprite.play('run')
 		
 func physics_update(_delta: float) -> void:
 	var input_direction_x := Input.get_axis('move_left', 'move_right')

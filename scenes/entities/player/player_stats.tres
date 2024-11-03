@@ -4,9 +4,11 @@
 
 [resource]
 script = ExtResource("1_hgicv")
-jump_impulse = 300.0
+jump_impulse = 250.0
+air_speed = 100.0
+attack_speed = 80.0
 knockback_strength = Vector2(200, 200)
-roll_impulse = 200
+roll_impulse = 200.0
 score = 0
 invincible = false
 speed = 130.0

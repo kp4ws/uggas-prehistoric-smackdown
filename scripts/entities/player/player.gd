@@ -5,7 +5,7 @@ class_name Player extends CharacterBody2D
 
 #Player modifiers
 @export var stats : PlayerStats
-@onready var animation_player = $AnimatedSprite2D
+@onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
 @onready var invincibility_timer = $Timers/InvincibilityTimer
 
@@ -14,6 +14,7 @@ func _ready():
 	stats.invincible = false
 	stats.entity_died.connect(_on_die)
 	#stats.health_changed.connect(_on_hurt)
+
 
 func _physics_process(_delta):
 	if stats.health == 0:
@@ -32,9 +33,9 @@ func _flip_sprite():
 	var input_direction_x := Input.get_axis("move_left", "move_right")
 	#Flip the sprite
 	if input_direction_x > 0:
-		animation_player.flip_h = false
+		animated_sprite.flip_h = false
 	elif input_direction_x < 0:
-		animation_player.flip_h = true
+		animated_sprite.flip_h = true
 
 func trigger_invincible():
 	stats.invincible = true

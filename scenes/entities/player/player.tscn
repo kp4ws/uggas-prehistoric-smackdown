@@ -357,7 +357,8 @@ stats = ExtResource("2_233ew")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11.6667)
 sprite_frames = SubResource("SpriteFrames_66o3l")
-animation = &"roll"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.85714, -7)

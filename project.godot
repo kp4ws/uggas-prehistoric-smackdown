@@ -25,6 +25,10 @@ SceneManager="*res://scenes/managers/scene_manager.tscn"
 GlobalSignals="*res://scripts/globals/global_signals.gd"
 MusicManager="*res://scenes/managers/music_manager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 jump={
