@@ -1,0 +1,94 @@
+[gd_scene load_steps=16 format=3 uid="uid://cjhnnmgdr0unw"]
+
+[ext_resource type="Script" path="res://scripts/entities/npc/npc.gd" id="1_5phwj"]
+[ext_resource type="Texture2D" uid="uid://c6jof3a5ghoi8" path="res://asset_packs/superpowers/prehistoric-platformer/characters/npc/old-man.png" id="1_hurdw"]
+[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://game/entities/health.tscn" id="2_k3lkd"]
+[ext_resource type="Script" path="res://scripts/interactables/dialogue.gd" id="2_mfmha"]
+[ext_resource type="Script" path="res://scripts/entities/npc/sprite_flipper.gd" id="3_jqtki"]
+[ext_resource type="Script" path="res://scripts/entities/state_machine.gd" id="4_jesyl"]
+[ext_resource type="Script" path="res://scripts/interactables/interaction_area.gd" id="7_oloiy"]
+
+[sub_resource type="Resource" id="Resource_nmre4"]
+script = ExtResource("2_mfmha")
+lines = Array[String](["Ugga! You've arrived just in time. Our precious relic has been stolen by Gronk's clan!", "You must traverse the lands between and retrieve our relic and restore order."])
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2c7u"]
+atlas = ExtResource("1_hurdw")
+region = Rect2(0, 0, 59, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfc8t"]
+atlas = ExtResource("1_hurdw")
+region = Rect2(59, 0, 59, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhkdx"]
+atlas = ExtResource("1_hurdw")
+region = Rect2(118, 0, 59, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45d6w"]
+atlas = ExtResource("1_hurdw")
+region = Rect2(177, 0, 59, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dpcm"]
+atlas = ExtResource("1_hurdw")
+region = Rect2(236, 0, 59, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g03cb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2c7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfc8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhkdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45d6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dpcm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l31wd"]
+radius = 196.674
+
+[node name="Chieftan" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_5phwj")
+dialogue = SubResource("Resource_nmre4")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g03cb")
+autoplay = "default"
+script = ExtResource("3_jqtki")
+
+[node name="FlipTimer" type="Timer" parent="Sprite"]
+one_shot = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-9, 0)
+
+[node name="Health" parent="." instance=ExtResource("2_k3lkd")]
+position = Vector2(1100.43, 231.481)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_jesyl")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_oloiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_l31wd")

@@ -3,10 +3,7 @@ extends Node
 @export var main_menu_scene:String = ''
 @export var game_over_scene:String = ''
 
-@export var level_scenes = [
-	"res://scenes/environment/levels/level1.tscn",
-	"res://scenes/environment/levels/level2.tscn"
-]
+@export var level_scenes: Array[String] = []
 var current_scene_index: int = 0
 
 func _ready():
@@ -49,7 +46,8 @@ func get_current_scene():
 	return get_tree().current_scene
 
 func reload_current_scene():
-	await load_scene(current_scene_index)
+	get_tree().reload_current_scene()
+	#load_scene(current_scene_index)
 
 func load_main_menu():
 	_load_scene_by_name(main_menu_scene)

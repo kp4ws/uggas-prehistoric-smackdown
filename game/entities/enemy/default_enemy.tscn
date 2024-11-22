@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dom0yjykbse0h"]
+
+[ext_resource type="Script" path="res://scripts/entities/damage_area.gd" id="1_en01e"]
+[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://game/entities/health.tscn" id="2_30rkg"]
+[ext_resource type="Script" path="res://scripts/entities/state_machine.gd" id="4_1xang"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t68dm"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs2w1"]
+size = Vector2(10, 12)
+
+[node name="Enemy" type="Node2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t68dm")
+autoplay = "default"
+frame_progress = 0.495837
+
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_en01e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_fs2w1")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-9, 0)
+
+[node name="Health" parent="." instance=ExtResource("2_30rkg")]
+position = Vector2(1100.43, 231.481)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_1xang")

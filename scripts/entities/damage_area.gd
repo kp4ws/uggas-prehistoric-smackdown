@@ -41,13 +41,13 @@ func _handle_killzone(target_health: Health):
 		print('Killzone Timer is not attached to DamageArea2D')
 		return
 	
-	#Start reload timer and damage player
-	Engine.time_scale = 0.3
-	
-	if target_health.get_health() == 0:
+	if target_health.health == 0:
 		print('health is 0')
 		#If player is dead, don't respawn
 		return
+
+	#Start reload timer and damage player
+	Engine.time_scale = 0.3
 	print('health is not 0')
 	$KillzoneTimer.start()
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq6ao6ssx2qk1"]
+
+[ext_resource type="PackedScene" uid="uid://cifrhtxt2f14j" path="res://game/interactables/interaction_area.tscn" id="1_c3228"]
+[ext_resource type="Script" path="res://scripts/interactables/door.gd" id="1_xc76h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ih836"]
+radius = 18.0
+height = 42.0
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_xc76h")
+
+[node name="InteractionArea" parent="." instance=ExtResource("1_c3228")]
+action_name = "Enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_ih836")

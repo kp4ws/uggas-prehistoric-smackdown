@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://cabj5sostikq6"]
+
+[ext_resource type="Script" path="res://scripts/managers/music_manager.gd" id="1_8awvj"]
+[ext_resource type="AudioStream" uid="uid://c5y5qb0k4n8bs" path="res://asset_packs/dbfiechter/Brandon Fiechter - Prehistoric Times - 09 Dinosaur Kingdom.mp3" id="2_5vce5"]
+[ext_resource type="AudioStream" uid="uid://d14g4obynb3j2" path="res://asset_packs/dbfiechter/Brandon Fiechter - Prehistoric Times - 17 Jungle Girl.mp3" id="3_psh7u"]
+[ext_resource type="AudioStream" uid="uid://4ejii3fhq321" path="res://asset_packs/superpowers/prehistoric-platformer/music/theme-1.ogg" id="4_wad6i"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_8awvj")
+menu_music = ExtResource("2_5vce5")
+game_music = ExtResource("3_psh7u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wad6i")

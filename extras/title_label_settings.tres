@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cpxqaptwjgexe"]
+
+[ext_resource type="FontFile" uid="uid://dpigja4ohhumj" path="res://asset_packs/fonts/Barrio/Barrio-Regular.ttf" id="1_w8tko"]
+
+[resource]
+font = ExtResource("1_w8tko")
+font_size = 80
+font_color = Color(0.945098, 0.647059, 0.152941, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 5)

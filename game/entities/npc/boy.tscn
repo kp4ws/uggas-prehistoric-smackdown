@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://6f6f3ya61cf8"]
+
+[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://game/entities/health.tscn" id="1_4wurm"]
+[ext_resource type="Texture2D" uid="uid://bcr2lpgorcefq" path="res://asset_packs/superpowers/prehistoric-platformer/characters/npc/boy-2.png" id="1_qrakb"]
+[ext_resource type="Script" path="res://scripts/entities/npc/sprite_flipper.gd" id="2_gqjyc"]
+[ext_resource type="Script" path="res://scripts/entities/state_machine.gd" id="3_drwye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7itlh"]
+atlas = ExtResource("1_qrakb")
+region = Rect2(0, 0, 47, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drijt"]
+atlas = ExtResource("1_qrakb")
+region = Rect2(47, 0, 47, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoq4l"]
+atlas = ExtResource("1_qrakb")
+region = Rect2(94, 0, 47, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lruif"]
+atlas = ExtResource("1_qrakb")
+region = Rect2(141, 0, 47, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75ga3"]
+atlas = ExtResource("1_qrakb")
+region = Rect2(188, 0, 47, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t68dm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7itlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drijt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoq4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lruif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75ga3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Boy" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t68dm")
+autoplay = "default"
+frame_progress = 0.886883
+flip_h = true
+script = ExtResource("2_gqjyc")
+
+[node name="FlipTimer" type="Timer" parent="Sprite"]
+one_shot = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-9, 0)
+
+[node name="Health" parent="." instance=ExtResource("1_4wurm")]
+position = Vector2(1100.43, 231.481)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_drwye")

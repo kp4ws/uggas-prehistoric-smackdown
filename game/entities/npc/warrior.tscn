@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://soyhjx2d2arn"]
+
+[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://game/entities/health.tscn" id="1_f1k3r"]
+[ext_resource type="Texture2D" uid="uid://wc4law6if3h1" path="res://asset_packs/superpowers/prehistoric-platformer/characters/npc/warrior.png" id="1_gxroc"]
+[ext_resource type="Script" path="res://scripts/entities/npc/sprite_flipper.gd" id="2_kmjav"]
+[ext_resource type="Script" path="res://scripts/entities/state_machine.gd" id="3_7i8xh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6ref"]
+atlas = ExtResource("1_gxroc")
+region = Rect2(0, 0, 70, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cnb0"]
+atlas = ExtResource("1_gxroc")
+region = Rect2(70, 0, 70, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x4jq"]
+atlas = ExtResource("1_gxroc")
+region = Rect2(140, 0, 70, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq5q0"]
+atlas = ExtResource("1_gxroc")
+region = Rect2(210, 0, 70, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csr7j"]
+atlas = ExtResource("1_gxroc")
+region = Rect2(280, 0, 70, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkkc3"]
+atlas = ExtResource("1_gxroc")
+region = Rect2(350, 0, 70, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t68dm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6ref")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cnb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x4jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq5q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csr7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkkc3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Warrior" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t68dm")
+autoplay = "default"
+frame_progress = 0.840988
+script = ExtResource("2_kmjav")
+
+[node name="FlipTimer" type="Timer" parent="Sprite"]
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-9, 0)
+
+[node name="Health" parent="." instance=ExtResource("1_f1k3r")]
+position = Vector2(1100.43, 231.481)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_7i8xh")

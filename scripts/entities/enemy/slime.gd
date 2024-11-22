@@ -18,4 +18,4 @@ func _physics_process(delta):
 		sprite.flip_h = false
 
 func _process(delta):
-	position.x += direction * enemy_stats.speed * delta
+	position.x += direction * enemy_stats.base_speed * delta

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlayerModifiers" load_steps=2 format=3 uid="uid://co4mgu3nrpcta"]
+
+[ext_resource type="Script" path="res://scripts/entities/player/player_modifiers.gd" id="1_inovb"]
+
+[resource]
+script = ExtResource("1_inovb")
+jump_impulse = 200.0
+air_speed = 100.0
+attack_speed = 80.0
+knockback_strength = Vector2(200, 200)
+roll_impulse = 300.0
+attack_distance = 70.0
+gravity = null
+base_speed = 130.0
+attack_damage = 20.0

@@ -5,7 +5,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	player.animated_sprite.play('idle')
 		
 func physics_update(delta: float) -> void:
-	player.velocity.y += player.stats.gravity * delta
+	player.velocity.y += player.modifiers.gravity * delta
 	player.move_and_slide()
 	
 	if not player.is_on_floor():

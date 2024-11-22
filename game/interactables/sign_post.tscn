@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://q7v6b27odnsf"]
+
+[ext_resource type="Script" path="res://scripts/interactables/interaction_area.gd" id="1_xlmtj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6bo7"]
+size = Vector2(36, 18)
+
+[node name="SignPost" type="Node2D"]
+
+[node name="InteractionArea" type="Area2D" parent="."]
+script = ExtResource("1_xlmtj")
+action_name = "[Enter] Interact"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_g6bo7")

@@ -1,31 +1,21 @@
 extends CanvasLayer
 @onready var lives_label = $LivesLabel
 @onready var score_label = $ScoreLabel
-#@onready var enter_label = $EnterLabel
 
-@export var player_stats: PlayerStats
+@export var player_data : PlayerData
 
 func _ready():
-	#GlobalSignals.level_ready.connect(_initiate_hud)
-	_initiate_hud()
-	player_stats.health_changed.connect(_update_lives)
-	player_stats.score_changed.connect(_update_score)
-
-func _initiate_hud():
-	#enter_label.hide()
-	_update_lives(0)
+	if not player_data:
+		printerr('HUD is missing Player Data')
+		return
+		
+	player_data.health_changed.connect(_update_lives)
+	_update_lives()
 	_update_score()
 
-#TODO health_changed emits the attacker who did the damage. This isn't needed in this function
-func _update_lives(_attacker): 
+func _update_lives(): 
 	#TODO Will probably have hearts instead of health bar for my game
-	lives_label.text = "Health: " + str(player_stats.health)
+	lives_label.text = "Health: " + str(player_data.health)
 
 func _update_score():
-	score_label.text = "Score: " + str(player_stats.score)
-
-#func toggle_enter():
-	#if enter_label.hidden():
-		#enter_label.show()
-	#else:
-		#enter_label.hide()
+	score_label.text = "Score: " + str(player_data.score)

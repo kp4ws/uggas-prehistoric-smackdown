@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://b47ltriud04uv"]
+
+[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://game/entities/health.tscn" id="1_bkegp"]
+[ext_resource type="Texture2D" uid="uid://c7ncscuro7oki" path="res://asset_packs/superpowers/prehistoric-platformer/characters/npc/blacksmith.png" id="1_tbwuw"]
+[ext_resource type="Script" path="res://scripts/entities/npc/sprite_flipper.gd" id="2_ujo52"]
+[ext_resource type="Script" path="res://scripts/entities/state_machine.gd" id="3_v2052"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d8kp"]
+atlas = ExtResource("1_tbwuw")
+region = Rect2(0, 0, 108, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlsck"]
+atlas = ExtResource("1_tbwuw")
+region = Rect2(108, 0, 108, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em6n0"]
+atlas = ExtResource("1_tbwuw")
+region = Rect2(216, 0, 108, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g78r4"]
+atlas = ExtResource("1_tbwuw")
+region = Rect2(324, 0, 108, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l7k4"]
+atlas = ExtResource("1_tbwuw")
+region = Rect2(432, 0, 108, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8di3i"]
+atlas = ExtResource("1_tbwuw")
+region = Rect2(540, 0, 108, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7orbl"]
+atlas = ExtResource("1_tbwuw")
+region = Rect2(648, 0, 108, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xjik"]
+atlas = ExtResource("1_tbwuw")
+region = Rect2(0, 88, 108, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t68dm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d8kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlsck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em6n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g78r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l7k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8di3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7orbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xjik")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Blacksmith" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t68dm")
+autoplay = "default"
+frame_progress = 0.599584
+flip_h = true
+script = ExtResource("2_ujo52")
+
+[node name="FlipTimer" type="Timer" parent="Sprite"]
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-9, 0)
+
+[node name="Health" parent="." instance=ExtResource("1_bkegp")]
+position = Vector2(1100.43, 231.481)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_v2052")

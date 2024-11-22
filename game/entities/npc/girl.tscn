@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://cvlp6ehjfl8ir"]
+
+[ext_resource type="Texture2D" uid="uid://b64bj2kxfoo84" path="res://asset_packs/superpowers/prehistoric-platformer/characters/npc/girl-1.png" id="1_k7t0j"]
+[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://game/entities/health.tscn" id="1_sw6br"]
+[ext_resource type="Script" path="res://scripts/entities/state_machine.gd" id="3_ntfc0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63ud3"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(0, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wotu"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(59, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar851"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(118, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjdrq"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(177, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqnof"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(236, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec6t6"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(295, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roncc"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(354, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x6ra"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(413, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myg6e"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(472, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5r3b"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(531, 0, 59, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl175"]
+atlas = ExtResource("1_k7t0j")
+region = Rect2(590, 0, 59, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t68dm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63ud3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wotu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar851")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjdrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqnof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec6t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roncc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x6ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myg6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5r3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl175")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Girl" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t68dm")
+autoplay = "default"
+frame_progress = 0.00705366
+flip_h = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-9, 0)
+
+[node name="Health" parent="." instance=ExtResource("1_sw6br")]
+position = Vector2(1100.43, 231.481)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_ntfc0")

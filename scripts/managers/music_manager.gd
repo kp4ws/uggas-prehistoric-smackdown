@@ -1,6 +1,6 @@
 extends Node
 
-@onready var audio_player = $AudioStreamPlayer2D
+@onready var audio_player = $AudioStreamPlayer
 
 @export var menu_music: AudioStreamMP3 = null
 @export var game_music: AudioStreamMP3 = null

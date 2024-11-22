@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg4blsyqmrkic"]
+
+[ext_resource type="Script" path="res://scripts/entities/npc/sprite_flipper.gd" id="1_r2k3n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t68dm"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Sprite" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_t68dm")
+autoplay = "default"
+frame_progress = 0.817784
+flip_h = true
+script = ExtResource("1_r2k3n")
+
+[node name="FlipTimer" type="Timer" parent="."]

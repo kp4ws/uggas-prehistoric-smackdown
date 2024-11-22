@@ -1,0 +1,110 @@
+[gd_scene load_steps=16 format=3 uid="uid://ls5apvf1jlnd"]
+
+[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://game/entities/health.tscn" id="1_i8eso"]
+[ext_resource type="Texture2D" uid="uid://brdodhp4ejoyy" path="res://asset_packs/superpowers/prehistoric-platformer/characters/npc/dragon-man.png" id="1_qrld1"]
+[ext_resource type="Script" path="res://scripts/entities/npc/sprite_flipper.gd" id="2_j6e3v"]
+[ext_resource type="Script" path="res://scripts/entities/state_machine.gd" id="3_240x3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okctp"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(0, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqyih"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(58, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loyej"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(116, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfaml"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(174, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jajco"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(232, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hwmo"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(0, 67, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yi2r"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(58, 67, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldf1n"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(116, 67, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts421"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(174, 67, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6858t"]
+atlas = ExtResource("1_qrld1")
+region = Rect2(232, 67, 58, 67)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t68dm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okctp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqyih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loyej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfaml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jajco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hwmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yi2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldf1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts421")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6858t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="DragonMan" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t68dm")
+autoplay = "default"
+frame_progress = 0.959023
+flip_h = true
+script = ExtResource("2_j6e3v")
+
+[node name="FlipTimer" type="Timer" parent="Sprite"]
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-9, 0)
+
+[node name="Health" parent="." instance=ExtResource("1_i8eso")]
+position = Vector2(1100.43, 231.481)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_240x3")

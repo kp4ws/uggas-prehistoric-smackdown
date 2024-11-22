@@ -4,9 +4,9 @@ extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	if player.animated_sprite.flip_h:
-		player.velocity.x = player.stats.roll_impulse * -1
+		player.velocity.x = player.modifiers.roll_impulse * -1
 	else:
-		player.velocity.x = player.stats.roll_impulse
+		player.velocity.x = player.modifiers.roll_impulse
 		
 	player.animated_sprite.play('roll')
 	await get_tree().create_timer(0.5).timeout
@@ -23,7 +23,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 func physics_update(_delta: float) -> void:
 	#var input_direction_x := Input.get_axis('move_left', 'move_right')
 	#player.velocity.x = -roll_velocity * input_direction_x
-	player.velocity.y += player.stats.gravity * _delta
+	player.velocity.y += player.modifiers.gravity * _delta
 	player.move_and_slide()
 
 	# print(roll_velocity)

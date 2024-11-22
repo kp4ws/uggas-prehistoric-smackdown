@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk8n6iu4shg81"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_j0u13"]
+[ext_resource type="Texture2D" uid="uid://cr8414x1rrqc6" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/background-1.png" id="2_0r1a6"]
+[ext_resource type="Texture2D" uid="uid://drjyy8vds0fwi" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/background-2.png" id="3_jeihg"]
+[ext_resource type="LabelSettings" uid="uid://cpxqaptwjgexe" path="res://extras/title_label_settings.tres" id="4_ce4sn"]
+[ext_resource type="FontFile" uid="uid://b3kqrcg1q5xi0" path="res://asset_packs/fonts/Kirang_Haerang/KirangHaerang-Regular.ttf" id="5_ykjgb"]
+[ext_resource type="Texture2D" uid="uid://cgq6a6k6adayn" path="res://asset_packs/superpowers/prehistoric-platformer/items/1.png" id="6_quuii"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ulh2r"]
+font = ExtResource("5_ykjgb")
+font_size = 32
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j0u13")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background-1" type="Sprite2D" parent="Control"]
+position = Vector2(582, 324)
+scale = Vector2(1.445, 1.07333)
+texture = ExtResource("2_0r1a6")
+
+[node name="Background" type="TextureRect" parent="Control/Background-1"]
+offset_left = -399.308
+offset_top = -341.927
+offset_right = 396.692
+offset_bottom = 298.073
+texture = ExtResource("3_jeihg")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 29.0
+offset_right = 957.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0.770919, 0, 0.0807954, 1)
+text = "Ugga's Prehistoric 
+Smackdown"
+label_settings = ExtResource("4_ce4sn")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 252.0
+offset_right = 568.0
+offset_bottom = 318.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ykjgb")
+theme_override_font_sizes/font_size = 64
+text = "Play"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ykjgb")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_quuii")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TextureButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TESTING"
+label_settings = SubResource("LabelSettings_ulh2r")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
