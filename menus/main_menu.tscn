@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dk8n6iu4shg81"]
+[gd_scene load_steps=7 format=3 uid="uid://dk8n6iu4shg81"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_j0u13"]
 [ext_resource type="Texture2D" uid="uid://cr8414x1rrqc6" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/background-1.png" id="2_0r1a6"]
-[ext_resource type="Texture2D" uid="uid://drjyy8vds0fwi" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/background-2.png" id="3_jeihg"]
 [ext_resource type="LabelSettings" uid="uid://cpxqaptwjgexe" path="res://extras/title_label_settings.tres" id="4_ce4sn"]
 [ext_resource type="FontFile" uid="uid://b3kqrcg1q5xi0" path="res://asset_packs/fonts/Kirang_Haerang/KirangHaerang-Regular.ttf" id="5_ykjgb"]
 [ext_resource type="Texture2D" uid="uid://cgq6a6k6adayn" path="res://asset_packs/superpowers/prehistoric-platformer/items/1.png" id="6_quuii"]
@@ -13,11 +12,9 @@ font_size = 32
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_j0u13")
 
 [node name="Control" type="Control" parent="."]
@@ -25,21 +22,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Background-1" type="Sprite2D" parent="Control"]
-position = Vector2(582, 324)
-scale = Vector2(1.445, 1.07333)
 texture = ExtResource("2_0r1a6")
-
-[node name="Background" type="TextureRect" parent="Control/Background-1"]
-offset_left = -399.308
-offset_top = -341.927
-offset_right = 396.692
-offset_bottom = 298.073
-texture = ExtResource("3_jeihg")
-expand_mode = 1
+centered = false
+region_rect = Rect2(76, 68, 631, 297)
 
 [node name="Title" type="Label" parent="Control"]
 layout_mode = 0

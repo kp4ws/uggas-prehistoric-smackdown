@@ -1,6 +1,11 @@
 extends CanvasLayer
-@onready var lives_label = $LivesLabel
-@onready var score_label = %ScoreLabel
+@onready var heart_0 = %Heart0
+@onready var heart_1 = %Heart1
+@onready var heart_2 = %Heart2
+@onready var relic_label = %RelicLabel
+
+@export var full_heart: Texture2D
+@export var empty_heart: Texture2D
 
 @export var player_data : PlayerData
 
@@ -14,8 +19,29 @@ func _ready():
 	_update_score()
 
 func _update_lives(): 
-	#TODO Will probably have hearts instead of health bar for my game
-	lives_label.text = "Health: " + str(player_data.health)
+	#Full hearts
+	if player_data.health == 100:
+		heart_0.texture = full_heart
+		heart_1.texture = full_heart
+		heart_2.texture = full_heart
+		
+	#2 hearts
+	elif player_data.health > 33:
+		heart_0.texture = full_heart
+		heart_1.texture = full_heart
+		heart_2.texture = empty_heart
+		
+	#1 heart
+	elif player_data.health > 0:
+		heart_0.texture = full_heart
+		heart_1.texture = empty_heart
+		heart_2.texture = empty_heart
+	
+	#0 hearts
+	else:
+		heart_0.texture = empty_heart
+		heart_1.texture = empty_heart
+		heart_2.texture = empty_heart
 
 func _update_score():
-	score_label.text = "Score: " + str(player_data.score)
+	relic_label.text = "x" + str(player_data.score)
