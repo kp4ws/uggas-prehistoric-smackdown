@@ -12,6 +12,23 @@ var punctuation_time = 0.2
 
 signal finished_displaying()
 
+func display_full_text(text_to_display: String):
+	label.text = text_to_display
+	
+	await resized
+	custom_minimum_size.x = min(size.x, MAX_WIDTH)
+	
+	if size.x > MAX_WIDTH:
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD
+		await resized #wait for x resize
+		await resized #wait for y resize
+		custom_minimum_size.y = size.y
+
+	global_position.x -= (size.x / 2) * scale.x
+	global_position.y -= (size.y + 24) * scale.y
+	
+	finished_displaying.emit()
+
 func display_text(text_to_display: String):
 	text = text_to_display
 	label.text = text_to_display

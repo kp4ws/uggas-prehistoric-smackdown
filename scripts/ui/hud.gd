@@ -1,6 +1,6 @@
 extends CanvasLayer
 @onready var lives_label = $LivesLabel
-@onready var score_label = $ScoreLabel
+@onready var score_label = %ScoreLabel
 
 @export var player_data : PlayerData
 

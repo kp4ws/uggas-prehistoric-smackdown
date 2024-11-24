@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://q7v6b27odnsf"]
+[gd_scene load_steps=5 format=3 uid="uid://q7v6b27odnsf"]
 
+[ext_resource type="Script" path="res://scripts/interactables/sign_post.gd" id="1_ny1or"]
 [ext_resource type="Script" path="res://scripts/interactables/interaction_area.gd" id="1_xlmtj"]
+[ext_resource type="Resource" uid="uid://bh5mmc8hcxvs2" path="res://game/interactables/sign_post_dialogue.tres" id="2_yyxh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6bo7"]
-size = Vector2(36, 18)
+size = Vector2(52, 36.5)
 
 [node name="SignPost" type="Node2D"]
+script = ExtResource("1_ny1or")
+dialogue = ExtResource("2_yyxh5")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_xlmtj")
-action_name = "[Enter] Interact"
+action_name = "Read"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("RectangleShape2D_g6bo7")

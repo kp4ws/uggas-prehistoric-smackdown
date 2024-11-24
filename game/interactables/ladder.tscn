@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4gc0on3h84s1"]
+
+[ext_resource type="Script" path="res://scripts/interactables/interaction_area.gd" id="1_7jdj6"]
+[ext_resource type="Script" path="res://scripts/interactables/ladder.gd" id="1_a4mg0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usnd7"]
+size = Vector2(30, 16)
+
+[node name="Ladder" type="Node2D"]
+script = ExtResource("1_a4mg0")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_7jdj6")
+action_name = "Climb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_usnd7")

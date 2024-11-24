@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://cx2tao6mahtm" path="res://game/entities/player/player_data.tres" id="2_q18yq"]
 
 [node name="MainCamera" type="Camera2D"]
+limit_smoothed = true
 script = ExtResource("1_yv22n")
 randomStrength = 4.0
 player_data = ExtResource("2_q18yq")

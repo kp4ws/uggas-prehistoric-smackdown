@@ -6,15 +6,17 @@ var current_line_index = 0
 var text_box: Node
 var text_box_position: Vector2
 
+
 var is_dialog_active = false
 var can_advance_line = false
-
+var show_full_dialogue = false
 signal dialog_finished
 
-func start_dialogue(position: Vector2, lines: Array[String]):
+func start_dialogue(position: Vector2, lines: Array[String], full_dialogue: bool = false):
 	if is_dialog_active:
 		return
 	
+	show_full_dialogue = full_dialogue
 	dialog_lines = lines
 	text_box_position = position
 	_show_text_box()
@@ -32,7 +34,12 @@ func _show_text_box():
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
 	get_tree().root.add_child(text_box)
 	text_box.global_position = text_box_position
-	text_box.display_text(dialog_lines[current_line_index])
+	
+	if show_full_dialogue:
+		text_box.display_full_text(dialog_lines[current_line_index])
+	else:
+		text_box.display_text(dialog_lines[current_line_index])
+	
 	can_advance_line = false
 
 func _on_text_box_finished_displaying():

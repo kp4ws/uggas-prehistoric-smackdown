@@ -3,8 +3,8 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group('player')
 @onready var label: Label = $Label
 
-const base_text = ''
-const vertical_height = 50
+const base_text = '[Up] to '
+const vertical_height = 60
 #Hold all interaction areas that can be interacted with
 var active_areas = []
 var can_interact = true
