@@ -44,4 +44,4 @@ func _update_lives():
 		heart_2.texture = empty_heart
 
 func _update_score():
-	relic_label.text = "x" + str(player_data.score)
+	relic_label.text = "Relics: " + str(player_data.score)
