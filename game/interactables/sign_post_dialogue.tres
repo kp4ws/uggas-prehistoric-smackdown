@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_smwkp")
-lines = Array[String](["[Z]: JUMP
+lines = Array[String](["	
 [Left/Right]: MOVE
-[Up]: INTERACT
-[X]: ATTACK
-[C]: ROLL"])
+	"])

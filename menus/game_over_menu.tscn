@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=3 uid="uid://dva6jprc7ibpc"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_gutty"]
+[ext_resource type="Texture2D" uid="uid://brpj2275maxl0" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/rock-1.png" id="2_h17ri"]
+[ext_resource type="Theme" uid="uid://dp3h735v7eddt" path="res://extras/title_theme.tres" id="2_lkcl1"]
+[ext_resource type="FontFile" uid="uid://dpigja4ohhumj" path="res://asset_packs/fonts/Barrio/Barrio-Regular.ttf" id="3_nt7od"]
+[ext_resource type="Script" path="res://title.gd" id="4_368yo"]
+[ext_resource type="Texture2D" uid="uid://ces7vy8jdn41a" path="res://extras/game_over_texture.tres" id="6_hamnx"]
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_gutty")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h17ri")
+stretch_mode = 1
+
+[node name="TitleRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -446.0
+offset_top = -370.5
+offset_right = 446.0
+offset_bottom = -149.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleShadow" type="Label" parent="TitleRect"]
+clip_children = 2
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 889.0
+offset_bottom = 234.0
+theme = ExtResource("2_lkcl1")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.572549, 0.403922, 0.286275, 1)
+theme_override_colors/font_shadow_color = Color(0.490196, 0.298039, 0.219608, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 20
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("3_nt7od")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("4_368yo")
+
+[node name="Title" type="Label" parent="TitleRect"]
+clip_children = 2
+layout_mode = 0
+offset_right = 886.0
+offset_bottom = 229.0
+theme = ExtResource("2_lkcl1")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.94902, 0.792157, 0.537255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("3_nt7od")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("4_368yo")
+
+[node name="Gradient" type="TextureRect" parent="TitleRect/Title"]
+layout_mode = 0
+offset_right = 892.0
+offset_bottom = 221.0
+texture = ExtResource("6_hamnx")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -110.0
+offset_right = 100.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = ExtResource("2_lkcl1")
+text = "Continue"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = ExtResource("2_lkcl1")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_options_pressed"]

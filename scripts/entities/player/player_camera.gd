@@ -9,6 +9,12 @@ var shake_strength: float = 0.0
 
 func _ready():
 	player_data.health_changed.connect(apply_shake)
+	
+	#This code ensures the camera immediately snaps to place when level is loaded
+	reset_smoothing()
+	position_smoothing_enabled = false
+	await get_tree().create_timer(0.3).timeout
+	position_smoothing_enabled = true
 
 func _process(delta):
 	if shake_strength > 0:

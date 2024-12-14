@@ -15,6 +15,7 @@ func _ready():
 		return
 		
 	player_data.health_changed.connect(_update_lives)
+	player_data.score_changed.connect(_update_score)
 	_update_lives()
 	_update_score()
 

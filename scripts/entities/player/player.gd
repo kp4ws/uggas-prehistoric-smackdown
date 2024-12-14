@@ -3,12 +3,15 @@ class_name Player extends CharacterBody2D
 
 @export var data: PlayerData
 @export var modifiers: PlayerModifiers
-@onready var health_component = $Health
-@onready var animated_sprite = $AnimatedSprite2D
-@onready var animation_player = $AnimationPlayer
-@onready var collision_shape = $CollisionShape2D
-@onready var invincibility_timer = $Timers/InvincibilityTimer
-@onready var attack_ray_cast = $AttackRayCast2D
+@onready var health_component: Health = $Health
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var player_collider: CollisionShape2D = $PlayerCollider2D
+@onready var invincibility_timer: Timer = $Timers/InvincibilityTimer
+@onready var attack_ray_cast: RayCast2D = $AttackRayCast2D
+
+@onready var climb_up_ray_cast: RayCast2D = $ClimbUpRayCast2D
+@onready var climb_down_ray_cast: RayCast2D = $ClimbDownRayCast2D
 
 var respawnPosition: Vector2 = Vector2.ZERO
 
@@ -16,7 +19,7 @@ func _ready():
 	respawnPosition = self.position
 	_load_player_data()
 	_subscribe()
-
+	
 func _subscribe():
 	#TODO if my game is going to include saving/continuing, then this will need refactoring
 	GlobalSignals.start_game.connect(_reset_saved_data)

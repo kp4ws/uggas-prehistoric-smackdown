@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjhnnmgdr0unw"]
+[gd_scene load_steps=16 format=3 uid="uid://cjhnnmgdr0unw"]
 
 [ext_resource type="Script" path="res://scripts/entities/npc/npc.gd" id="1_5phwj"]
 [ext_resource type="Texture2D" uid="uid://c6jof3a5ghoi8" path="res://asset_packs/superpowers/prehistoric-platformer/characters/npc/old-man.png" id="1_hurdw"]
 [ext_resource type="Resource" uid="uid://bjf8ud2sp8si7" path="res://game/entities/npc/chieftan_dialogue.tres" id="2_6jx5p"]
 [ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://game/entities/health.tscn" id="2_k3lkd"]
 [ext_resource type="Script" path="res://scripts/entities/npc/sprite_flipper.gd" id="3_jqtki"]
+[ext_resource type="AudioStream" uid="uid://b14s1ae5g8s03" path="res://asset_packs/speech2.wav" id="4_25wu1"]
 [ext_resource type="Script" path="res://scripts/entities/state_machine.gd" id="4_jesyl"]
 [ext_resource type="Script" path="res://scripts/interactables/interaction_area.gd" id="7_oloiy"]
 
@@ -58,6 +59,7 @@ radius = 196.674
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_5phwj")
 dialogue = ExtResource("2_6jx5p")
+speech_sfx = Array[AudioStream]([ExtResource("4_25wu1")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g03cb")

@@ -1,15 +1,20 @@
 extends Node2D
 
-@onready var interaction_area = $InteractionArea
+@onready var top_collision: CollisionShape2D = $StaticBody2D/LadderTopCollision2D
+@onready var area2D: Area2D = $Area2D
 
 func _ready():
-	interaction_area.interact = Callable(self, '_on_interact')
-	interaction_area.end_interact = Callable(self, '_on_end_interact')
+	area2D.body_entered.connect(_on_body_entered)
+	area2D.body_exited.connect(_on_body_exited)
 
-func _on_interact():
-	#TODO disable player input, play climbing animation and make player auto climb to top of ladder
-	pass
+func _on_body_entered(body):
+	if body.has_method('enable_climb'):
+		body.enable_climb(self)
+	else:
+		printerr('Player missing enable climb function')
 
-func _on_end_interact():
-	#TODO enable player input (and anything else needed)
-	pass
+func _on_body_exited(body):
+	if body.has_method('disable_climb'):
+		body.disable_climb()
+	else:
+		printerr('Player missing disable climb function')

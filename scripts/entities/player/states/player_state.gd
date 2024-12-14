@@ -9,6 +9,7 @@ const HURT = 'Hurt'
 const DEATH = 'Death'
 const ROLL = 'Roll'
 const ATTACK = 'Attack'
+const CLIMB = 'Climb'
 
 var player: Player
 

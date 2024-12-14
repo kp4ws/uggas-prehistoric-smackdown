@@ -9,7 +9,6 @@ func physics_update(_delta: float) -> void:
 	player.velocity.y += player.modifiers.gravity * _delta
 	player.move_and_slide()
 	
-
 	if Input.is_action_just_pressed("attack"):
 		finished.emit(ATTACK)
 	elif player.is_on_floor():

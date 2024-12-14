@@ -1,82 +1,245 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk8n6iu4shg81"]
+[gd_scene load_steps=14 format=3 uid="uid://dk8n6iu4shg81"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_j0u13"]
-[ext_resource type="Texture2D" uid="uid://cr8414x1rrqc6" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/background-1.png" id="2_0r1a6"]
-[ext_resource type="LabelSettings" uid="uid://cpxqaptwjgexe" path="res://extras/title_label_settings.tres" id="4_ce4sn"]
-[ext_resource type="FontFile" uid="uid://b3kqrcg1q5xi0" path="res://asset_packs/fonts/Kirang_Haerang/KirangHaerang-Regular.ttf" id="5_ykjgb"]
-[ext_resource type="Texture2D" uid="uid://cgq6a6k6adayn" path="res://asset_packs/superpowers/prehistoric-platformer/items/1.png" id="6_quuii"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ulh2r"]
-font = ExtResource("5_ykjgb")
-font_size = 32
+[ext_resource type="Texture2D" uid="uid://cq5c7bqvrr7lw" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/sky-1.png" id="2_lrfuy"]
+[ext_resource type="Theme" uid="uid://dp3h735v7eddt" path="res://extras/title_theme.tres" id="4_g3xva"]
+[ext_resource type="FontFile" uid="uid://dpigja4ohhumj" path="res://asset_packs/fonts/Barrio/Barrio-Regular.ttf" id="5_q22ta"]
+[ext_resource type="Script" path="res://title.gd" id="6_a83y1"]
+[ext_resource type="Texture2D" uid="uid://bkqphqoc7j4ln" path="res://extras/title_texture.tres" id="6_c3b7y"]
+[ext_resource type="Texture2D" uid="uid://iejhqa80y2pg" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/sea-1.png" id="7_mk4nd"]
+[ext_resource type="Texture2D" uid="uid://cgs5optcum7kv" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/mountain-1.png" id="7_sf6gg"]
+[ext_resource type="Script" path="res://scripts/environment/scrolling_parallax.gd" id="9_25ky6"]
+[ext_resource type="Texture2D" uid="uid://b48tb1xge43m4" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/forest-1.png" id="9_fv1qc"]
+[ext_resource type="PackedScene" uid="uid://cgqjnl8uxaj7y" path="res://game/entities/enemy/pterodactyl_green.tscn" id="11_6qo24"]
+[ext_resource type="Texture2D" uid="uid://1f4e4840npxi" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/rock-3.png" id="11_kno8g"]
+[ext_resource type="PackedScene" uid="uid://btpk2s6mcgpl8" path="res://game/entities/enemy/big_trex/big_trex_enemy.tscn" id="12_c6na1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_j0u13")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1152.0
-offset_bottom = -648.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SettingsMenu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Background-1" type="Sprite2D" parent="Control"]
-texture = ExtResource("2_0r1a6")
-centered = false
-region_rect = Rect2(76, 68, 631, 297)
-
-[node name="Title" type="Label" parent="Control"]
+[node name="Panel" type="Panel" parent="SettingsMenu"]
 layout_mode = 0
-offset_left = 194.0
-offset_top = 29.0
-offset_right = 957.0
-offset_bottom = 228.0
-theme_override_colors/font_color = Color(0.770919, 0, 0.0807954, 1)
-text = "Ugga's Prehistoric 
-Smackdown"
-label_settings = ExtResource("4_ce4sn")
-horizontal_alignment = 1
-uppercase = true
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 101.0
-offset_top = 143.0
-offset_right = 213.0
-offset_bottom = 332.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ykjgb")
-theme_override_font_sizes/font_size = 64
-text = "Play"
-
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ykjgb")
-theme_override_font_sizes/font_size = 64
-text = "Quit"
-
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("6_quuii")
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TextureButton"]
+[node name="Label" type="Label" parent="SettingsMenu/Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "TESTING"
-label_settings = SubResource("LabelSettings_ulh2r")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="TitleRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -446.0
+offset_top = -370.5
+offset_right = 446.0
+offset_bottom = -149.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleShadow" type="Label" parent="TitleRect"]
+clip_children = 2
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 889.0
+offset_bottom = 234.0
+theme = ExtResource("4_g3xva")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.572549, 0.403922, 0.286275, 1)
+theme_override_colors/font_shadow_color = Color(0.490196, 0.298039, 0.219608, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 20
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("5_q22ta")
+theme_override_font_sizes/font_size = 100
+text = "Ugga's Prehistoric 
+Smackdown"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("6_a83y1")
+
+[node name="Title" type="Label" parent="TitleRect"]
+clip_children = 2
+layout_mode = 0
+offset_right = 886.0
+offset_bottom = 229.0
+theme = ExtResource("4_g3xva")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.94902, 0.792157, 0.537255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("5_q22ta")
+theme_override_font_sizes/font_size = 100
+text = "Ugga's Prehistoric 
+Smackdown"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("6_a83y1")
+
+[node name="Gradient" type="TextureRect" parent="TitleRect/Title"]
+layout_mode = 0
+offset_right = 892.0
+offset_bottom = 221.0
+texture = ExtResource("6_c3b7y")
+expand_mode = 1
+
+[node name="Buttons" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -131.0
+offset_right = 100.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Play" type="Button" parent="Buttons/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = ExtResource("4_g3xva")
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="Buttons/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = ExtResource("4_g3xva")
+text = "Settings	"
+
+[node name="Quit" type="Button" parent="Buttons/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme = ExtResource("4_g3xva")
+text = "Quit Game"
+
+[node name="Credits" type="Button" parent="Buttons/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = ExtResource("4_g3xva")
+text = "Credits"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." node_paths=PackedStringArray("parallax_layers")]
+script = ExtResource("9_25ky6")
+scrolling_speed = 5
+parallax_layers = [NodePath("SkyParallax"), NodePath("SeaParallax"), NodePath("MountainParallax"), NodePath("ForestParallax"), NodePath("RockParallax")]
+
+[node name="SkyParallax" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sky-1" type="Sprite2D" parent="ParallaxBackground/SkyParallax"]
+texture_repeat = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_lrfuy")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 600)
+
+[node name="SeaParallax" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sea-1" type="Sprite2D" parent="ParallaxBackground/SeaParallax"]
+texture_repeat = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("7_mk4nd")
+centered = false
+offset = Vector2(0, 170)
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 215)
+
+[node name="MountainParallax" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Mountain-1" type="Sprite2D" parent="ParallaxBackground/MountainParallax"]
+texture_repeat = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("7_sf6gg")
+centered = false
+offset = Vector2(0, 100)
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 487)
+
+[node name="ForestParallax" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.8, 1.8)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Forest-1" type="Sprite2D" parent="ParallaxBackground/ForestParallax"]
+texture_repeat = 2
+position = Vector2(4, -21)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("9_fv1qc")
+centered = false
+offset = Vector2(0, 310)
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 373)
+
+[node name="RockParallax" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Rock-1" type="Sprite2D" parent="ParallaxBackground/RockParallax"]
+texture_repeat = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("11_kno8g")
+centered = false
+offset = Vector2(0, 508)
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 163)
+
+[node name="Big_Trex" parent="ParallaxBackground/RockParallax/Rock-1" instance=ExtResource("12_c6na1")]
+show_behind_parent = true
+position = Vector2(662.5, 545)
+scale = Vector2(1.25, 1.25)
+
+[node name="Enemy" parent="ParallaxBackground/RockParallax/Rock-1" instance=ExtResource("11_6qo24")]
+z_index = 1
+position = Vector2(701.875, 102.5)
+scale = Vector2(0.625, 0.625)
+
+[node name="Enemy2" parent="ParallaxBackground/RockParallax/Rock-1" instance=ExtResource("11_6qo24")]
+z_index = 1
+position = Vector2(556.25, 255.625)
+scale = Vector2(0.625, 0.625)
+
+[node name="Enemy3" parent="ParallaxBackground/RockParallax/Rock-1" instance=ExtResource("11_6qo24")]
+z_index = 1
+position = Vector2(991.875, 152.5)
+scale = Vector2(0.625, 0.625)
+
+[connection signal="pressed" from="Buttons/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/VBoxContainer/Settings" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Buttons/VBoxContainer/Credits" to="." method="_on_options_pressed"]

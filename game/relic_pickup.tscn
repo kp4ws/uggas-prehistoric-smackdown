@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://wciwm6aqiowr"]
+
+[ext_resource type="Script" path="res://game/relic_pickup.gd" id="1_vpc06"]
+[ext_resource type="Resource" uid="uid://cx2tao6mahtm" path="res://game/entities/player/player_data.tres" id="2_53rdj"]
+[ext_resource type="Texture2D" uid="uid://dwyrefvct5tpl" path="res://asset_packs/superpowers/gem-1.png" id="3_m6wen"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhk15"]
+atlas = ExtResource("3_m6wen")
+region = Rect2(0, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jokdl"]
+atlas = ExtResource("3_m6wen")
+region = Rect2(0, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bwch"]
+atlas = ExtResource("3_m6wen")
+region = Rect2(16, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i8r1"]
+atlas = ExtResource("3_m6wen")
+region = Rect2(32, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogocu"]
+atlas = ExtResource("3_m6wen")
+region = Rect2(48, 0, 16, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgkm4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhk15")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jokdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bwch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i8r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogocu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jokdl")
+}],
+"loop": false,
+"name": &"flash",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_felud"]
+
+[node name="Relic" type="Node2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_vpc06")
+player_data = ExtResource("2_53rdj")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.166666, 0)
+scale = Vector2(1.02083, 1)
+sprite_frames = SubResource("SpriteFrames_tgkm4")
+animation = &"flash"
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_felud")
+
+[node name="FlashTimer" type="Timer" parent="."]

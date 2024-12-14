@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4rwgrg3pu886"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_rkgal"]
+[ext_resource type="Texture2D" uid="uid://0k3x71kaawnn" path="res://asset_packs/dialog_box.png" id="2_tk5qv"]
+[ext_resource type="Theme" uid="uid://cacn5vxeaf135" path="res://extras/game_theme.tres" id="3_ryr00"]
+[ext_resource type="Theme" uid="uid://dp3h735v7eddt" path="res://extras/title_theme.tres" id="4_vk1kk"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_rkgal")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -115.0
+offset_right = 59.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRectContainer" type="TextureRect" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -115.0
+offset_right = 61.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tk5qv")
+
+[node name="TextureRectTitle" type="TextureRect" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 48.0
+grow_horizontal = 2
+texture = ExtResource("2_tk5qv")
+
+[node name="Label" type="Label" parent="ReferenceRect/TextureRectTitle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -11.5
+offset_right = 53.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -21.0
+offset_right = 31.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ReferenceRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Continue" type="Button" parent="ReferenceRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ryr00")
+theme_override_font_sizes/font_size = 16
+text = "Continue"
+
+[node name="Quit" type="Button" parent="ReferenceRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_vk1kk")
+theme_override_font_sizes/font_size = 16
+text = "Quit	 to Menu"
+
+[connection signal="pressed" from="ReferenceRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ReferenceRect/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

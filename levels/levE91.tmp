@@ -8394,12 +8394,13 @@ position = Vector2(674, 486)
 collision_mask = 2
 
 [node name="HUD" parent="." instance=ExtResource("8_kei36")]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("14_m4plt")]
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("9_f41mr")]
-position = Vector2(-301, 90)
+position = Vector2(1499, -213)
 
 [node name="PlayerCamera" parent="Player" instance=ExtResource("10_iyvfw")]
 limit_right = 2117

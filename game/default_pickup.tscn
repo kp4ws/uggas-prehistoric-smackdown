@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmxa6dovokgj0"]
+
+[ext_resource type="Texture2D" uid="uid://dtcvdlljb4onn" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/tileset-1.png" id="1_b1641"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpe72"]
+atlas = ExtResource("1_b1641")
+region = Rect2(656, 544, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y18v0"]
+atlas = ExtResource("1_b1641")
+region = Rect2(672, 544, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6h2f"]
+atlas = ExtResource("1_b1641")
+region = Rect2(688, 544, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dvq1"]
+atlas = ExtResource("1_b1641")
+region = Rect2(704, 544, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg3mx"]
+atlas = ExtResource("1_b1641")
+region = Rect2(720, 544, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6whi6"]
+atlas = ExtResource("1_b1641")
+region = Rect2(736, 544, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgkm4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpe72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y18v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6h2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dvq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg3mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6whi6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Relic" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.166666, 0)
+scale = Vector2(1.02083, 1)
+sprite_frames = SubResource("SpriteFrames_tgkm4")
+autoplay = "default"
+frame_progress = 0.350228

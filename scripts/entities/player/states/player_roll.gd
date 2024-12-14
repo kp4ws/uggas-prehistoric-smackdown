@@ -1,7 +1,5 @@
 extends PlayerState
 
-#var roll_velocity: float = 0.0
-
 func enter(_previous_state_path: String, _data := {}) -> void:
 	if player.animated_sprite.flip_h:
 		player.velocity.x = player.modifiers.roll_impulse * -1

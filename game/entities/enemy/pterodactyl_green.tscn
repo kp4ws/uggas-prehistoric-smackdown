@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgqjnl8uxaj7y"]
+
+[ext_resource type="Script" path="res://scripts/entities/damage_area.gd" id="1_snt2m"]
+[ext_resource type="Texture2D" uid="uid://dbl7okxyqjt30" path="res://asset_packs/superpowers/prehistoric-platformer/monsters/pterodactyl-2.png" id="1_spdyx"]
+[ext_resource type="PackedScene" uid="uid://crmqcv4jar070" path="res://game/entities/health.tscn" id="2_kj115"]
+[ext_resource type="Script" path="res://scripts/entities/state_machine.gd" id="3_vxymt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c568j"]
+atlas = ExtResource("1_spdyx")
+region = Rect2(0, 0, 126, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5kkc"]
+atlas = ExtResource("1_spdyx")
+region = Rect2(126, 0, 126, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41xu6"]
+atlas = ExtResource("1_spdyx")
+region = Rect2(252, 0, 126, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l667u"]
+atlas = ExtResource("1_spdyx")
+region = Rect2(378, 0, 126, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0h1o"]
+atlas = ExtResource("1_spdyx")
+region = Rect2(0, 113, 126, 113)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t68dm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c568j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5kkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41xu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l667u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0h1o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs2w1"]
+size = Vector2(10, 12)
+
+[node name="PterodactylGreen" type="Node2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t68dm")
+autoplay = "default"
+frame_progress = 0.67735
+flip_h = true
+
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_snt2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_fs2w1")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-9, 0)
+
+[node name="Health" parent="." instance=ExtResource("2_kj115")]
+position = Vector2(1100.43, 231.481)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_vxymt")

@@ -212,7 +212,7 @@ script = ExtResource("1_30p1x")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_t68dm")
-animation = &"hurt"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="HitboxArea" type="Area2D" parent="."]

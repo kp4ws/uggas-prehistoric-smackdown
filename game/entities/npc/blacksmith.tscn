@@ -78,6 +78,7 @@ autoplay = "default"
 frame_progress = 0.599584
 flip_h = true
 script = ExtResource("2_ujo52")
+disable_flipping = true
 
 [node name="FlipTimer" type="Timer" parent="Sprite"]
 

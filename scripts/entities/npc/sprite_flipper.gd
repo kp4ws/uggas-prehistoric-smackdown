@@ -3,6 +3,7 @@ extends AnimatedSprite2D
 
 @export var min_flip_time: float = 5.0
 @export var max_flip_time: float = 8.0
+@export var disable_flipping: bool = false
 var rng = RandomNumberGenerator.new()
 
 func _get_random_time() -> float:
@@ -13,5 +14,8 @@ func _ready():
 	flip_timer.start(_get_random_time())
 
 func _on_time_out():
+	if disable_flipping:
+		return
+		
 	flip_h = !flip_h
 	flip_timer.start(_get_random_time())
