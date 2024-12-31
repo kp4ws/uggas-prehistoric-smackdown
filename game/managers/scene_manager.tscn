@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://uewj3o7o5uuf"]
+[gd_scene load_steps=3 format=3 uid="uid://uewj3o7o5uuf"]
 
 [ext_resource type="Script" path="res://scripts/managers/scene_manager.gd" id="1_n46d1"]
+[ext_resource type="PackedScene" uid="uid://d0qu52b6bu83x" path="res://bone_transition_screen.tscn" id="2_y64aq"]
 
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_n46d1")
 main_menu_scene = "res://menus/main_menu.tscn"
 game_over_scene = "res:/menus/game_over.tscn"
 level_scenes = Array[String](["res://levels/level1.tscn", "res://levels/level2.tscn"])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="BoneTransitionScreen" parent="CanvasLayer" instance=ExtResource("2_y64aq")]
+mouse_filter = 2
+
+[editable path="CanvasLayer/BoneTransitionScreen"]

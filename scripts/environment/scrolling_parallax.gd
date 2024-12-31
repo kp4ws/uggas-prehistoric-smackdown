@@ -10,4 +10,4 @@ func _on_resolution_changed():
 		layer.motion_offset.y = -200 #-200 works well on my laptop screen and 0 works good on my monitor screen
 
 func _process(delta):
-	scroll_offset.x -= scrolling_speed*delta
+	scroll_base_offset.x -= scrolling_speed*delta

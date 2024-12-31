@@ -76,12 +76,16 @@ func _display_letter():
 	
 	if sfxFlag:	
 		var new_audio_player: AudioStreamPlayer2D = audio_player.duplicate()
-		new_audio_player.pitch_scale += randf_range(-0.1, 0.15)
+		new_audio_player.pitch_scale += randf_range(-0.1, 0.2)
 		if text[letter_index] in ['a', 'e', 'i', 'o', 'u']:
 			new_audio_player.pitch_scale += 0.25
 		get_tree().root.add_child(new_audio_player)
+		
+		#Assuming there is only two SFX items in the array
+		#var selection = 0 if Engine.get_frames_drawn() % 2 == 0 else 1
 		var sfx_selection = randi_range(0, len(sfx)-1)
 		new_audio_player.stream = sfx[sfx_selection]
+		
 		new_audio_player.play()
 		await new_audio_player.finished
 		new_audio_player.queue_free()

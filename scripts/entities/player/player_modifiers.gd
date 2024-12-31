@@ -4,7 +4,7 @@ class_name PlayerModifiers
 @export var jump_impulse: float = 200.0
 
 #Horizontal movement speed. EntityModifiers has base speed variable
-@export var air_speed: float = 100.0
+@export var air_speed: float = 130.0
 @export var attack_speed: float = 80.0
 
 @export var knockback_strength: Vector2 = Vector2(200, 200) 

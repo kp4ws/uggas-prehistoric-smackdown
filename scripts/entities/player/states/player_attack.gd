@@ -6,6 +6,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	# player.velocity.x = 0.0
 	can_deal_damage = true
 	player.animated_sprite.play('attack')
+	player.punch_fx.play('punch')
 	get_tree().create_timer(0.3).timeout.connect(_on_attack_timeout)
 
 func physics_update(_delta: float) -> void:
@@ -35,6 +36,7 @@ func physics_update(_delta: float) -> void:
 		can_deal_damage = false
 	
 func _on_attack_timeout():
+	player.punch_fx.play('default')
 	# if player.stats.health == 0:
 	# 	finished.emit(DEATH)
 	if not player.is_on_floor():

@@ -1,22 +1,23 @@
-[gd_scene load_steps=23 format=3 uid="uid://hlehutpwnbix"]
+[gd_scene load_steps=24 format=3 uid="uid://cj3l107xbix0p"]
 
-[ext_resource type="Script" path="res://scripts/environment/level.gd" id="1_mytss"]
-[ext_resource type="Texture2D" uid="uid://dtcvdlljb4onn" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/tileset-1.png" id="2_sxjvt"]
-[ext_resource type="PackedScene" uid="uid://d4gc0on3h84s1" path="res://game/interactables/ladder.tscn" id="3_egmr5"]
-[ext_resource type="Script" path="res://scripts/environment/scrolling_parallax.gd" id="6_cmesc"]
-[ext_resource type="PackedScene" uid="uid://dq6ao6ssx2qk1" path="res://game/interactables/door.tscn" id="7_3dr24"]
-[ext_resource type="Texture2D" uid="uid://cq5c7bqvrr7lw" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/sky-1.png" id="7_qapb8"]
-[ext_resource type="Texture2D" uid="uid://iejhqa80y2pg" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/sea-1.png" id="8_urb38"]
-[ext_resource type="PackedScene" uid="uid://ckc1wkco6h7ws" path="res://game/environment/killzone.tscn" id="10_aqd8j"]
-[ext_resource type="PackedScene" uid="uid://cgirewbfxw1d8" path="res://level_title.tscn" id="10_sgtee"]
-[ext_resource type="Texture2D" uid="uid://lj6w75bolv1i" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/island-1.png" id="11_7ekyd"]
-[ext_resource type="PackedScene" uid="uid://bko6inldlgf6x" path="res://game/ui/hud.tscn" id="11_tb4kr"]
-[ext_resource type="Texture2D" uid="uid://cgs5optcum7kv" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/mountain-1.png" id="12_vskak"]
-[ext_resource type="PackedScene" uid="uid://bip74h5coac72" path="res://game/entities/player/player.tscn" id="12_yax5q"]
-[ext_resource type="PackedScene" uid="uid://dm3r0qsaowjgl" path="res://game/entities/player/player_camera.tscn" id="13_wikg7"]
+[ext_resource type="Script" path="res://scripts/environment/level.gd" id="1_76rby"]
+[ext_resource type="Texture2D" uid="uid://dtcvdlljb4onn" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/tileset-1.png" id="2_4frei"]
+[ext_resource type="PackedScene" uid="uid://d4gc0on3h84s1" path="res://game/interactables/ladder.tscn" id="3_tcoef"]
+[ext_resource type="PackedScene" uid="uid://dq6ao6ssx2qk1" path="res://game/interactables/door.tscn" id="4_8atgt"]
+[ext_resource type="PackedScene" uid="uid://ckc1wkco6h7ws" path="res://game/environment/killzone.tscn" id="5_loubx"]
+[ext_resource type="Texture2D" uid="uid://cq5c7bqvrr7lw" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/sky-1.png" id="6_n8npr"]
+[ext_resource type="Texture2D" uid="uid://iejhqa80y2pg" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/sea-1.png" id="7_a4sy3"]
+[ext_resource type="Texture2D" uid="uid://cgs5optcum7kv" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/mountain-1.png" id="8_r1adj"]
+[ext_resource type="Texture2D" uid="uid://cr8414x1rrqc6" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/background-1.png" id="9_qol0s"]
+[ext_resource type="Texture2D" uid="uid://b48tb1xge43m4" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/forest-1.png" id="10_teyda"]
+[ext_resource type="Texture2D" uid="uid://1f4e4840npxi" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/rock-3.png" id="11_cgomu"]
+[ext_resource type="PackedScene" uid="uid://bko6inldlgf6x" path="res://game/ui/hud.tscn" id="12_1ntnj"]
+[ext_resource type="PackedScene" uid="uid://bip74h5coac72" path="res://game/entities/player/player.tscn" id="13_mk14a"]
+[ext_resource type="PackedScene" uid="uid://dm3r0qsaowjgl" path="res://game/entities/player/player_camera.tscn" id="14_vvqkx"]
+[ext_resource type="PackedScene" uid="uid://cgirewbfxw1d8" path="res://level_title.tscn" id="15_v8fvi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdyyd"]
-texture = ExtResource("2_sxjvt")
+texture = ExtResource("2_4frei")
 54:3/0 = 0
 54:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 54:3/0/physics_layer_0/angular_velocity = 0.0
@@ -8182,7 +8183,7 @@ colors = PackedColorArray(0.482353, 0.529412, 0.47451, 1, 0.482353, 0.529412, 0.
 gradient = SubResource("Gradient_w52im")
 
 [node name="Level2" type="Node2D"]
-script = ExtResource("1_mytss")
+script = ExtResource("1_76rby")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(4, -379)
@@ -8204,7 +8205,7 @@ layer_3/tile_data = PackedInt32Array()
 
 [node name="Ladders" type="Node" parent="Environment"]
 
-[node name="Ladder" parent="Environment/Ladders" instance=ExtResource("3_egmr5")]
+[node name="Ladder" parent="Environment/Ladders" instance=ExtResource("3_tcoef")]
 position = Vector2(439, 41)
 script = null
 
@@ -8234,7 +8235,7 @@ shape = SubResource("RectangleShape2D_olig8")
 
 [node name="Interactables" type="Node" parent="Environment"]
 
-[node name="Door" parent="Environment/Interactables" instance=ExtResource("7_3dr24")]
+[node name="Door" parent="Environment/Interactables" instance=ExtResource("4_8atgt")]
 position = Vector2(-3, 82)
 scale = Vector2(1.25, 1.2)
 
@@ -8245,144 +8246,178 @@ unique_name_in_owner = true
 
 [node name="Platforms" type="Node" parent="Environment"]
 
-[node name="Killzone" parent="Environment" instance=ExtResource("10_aqd8j")]
+[node name="Killzone" parent="Environment" instance=ExtResource("5_loubx")]
 position = Vector2(653, 372)
 collision_mask = 2
-
-[node name="SkyParallax" type="ParallaxBackground" parent="Environment" node_paths=PackedStringArray("parallax_layers")]
-scale = Vector2(0.6, 0.6)
-transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
-scroll_offset = Vector2(300, 0)
-scroll_base_offset = Vector2(0, -700)
-script = ExtResource("6_cmesc")
-scrolling_speed = 24
-parallax_layers = [NodePath("SkyParallax")]
-
-[node name="SkyParallax" type="ParallaxLayer" parent="Environment/SkyParallax"]
-motion_scale = Vector2(0.1, 0.09)
-motion_offset = Vector2(0, 40)
-motion_mirroring = Vector2(1600, 0)
-
-[node name="BG-1" type="Sprite2D" parent="Environment/SkyParallax/SkyParallax"]
-texture_repeat = 2
-position = Vector2(4, -21)
-texture = ExtResource("7_qapb8")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 800, 438)
-
-[node name="BG-2" type="Sprite2D" parent="Environment/SkyParallax/SkyParallax"]
-texture_repeat = 2
-position = Vector2(4, -21)
-texture = ExtResource("7_qapb8")
-centered = false
-offset = Vector2(800, 0)
-region_enabled = true
-region_rect = Rect2(0, 0, 800, 438)
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/SkyParallax/SkyParallax"]
-position = Vector2(1086.67, 736.667)
-scale = Vector2(8.48307, 817.75)
-texture = SubResource("GradientTexture1D_41rfk")
-
-[node name="OceanParallax" type="ParallaxBackground" parent="Environment" node_paths=PackedStringArray("parallax_layers")]
-scale = Vector2(0.6, 0.6)
-transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
-scroll_offset = Vector2(300, 0)
-scroll_base_offset = Vector2(0, -700)
-script = ExtResource("6_cmesc")
-parallax_layers = [NodePath("../SkyParallax/SkyParallax")]
-
-[node name="OceanParallax" type="ParallaxLayer" parent="Environment/OceanParallax"]
-motion_scale = Vector2(0.08, 0.06)
-motion_offset = Vector2(0, 256)
-motion_mirroring = Vector2(1600, 0)
-
-[node name="BG-1" type="Sprite2D" parent="Environment/OceanParallax/OceanParallax"]
-texture_repeat = 2
-position = Vector2(4, -21)
-texture = ExtResource("8_urb38")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 800, 215)
-
-[node name="BG-2" type="Sprite2D" parent="Environment/OceanParallax/OceanParallax"]
-texture_repeat = 2
-position = Vector2(4, -21)
-texture = ExtResource("8_urb38")
-centered = false
-offset = Vector2(800, 0)
-region_enabled = true
-region_rect = Rect2(0, 0, 800, 215)
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/OceanParallax/OceanParallax"]
-position = Vector2(1086.67, 736.667)
-scale = Vector2(8.48307, 817.75)
-texture = SubResource("GradientTexture1D_41rfk")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Environment"]
 scale = Vector2(0.6, 0.6)
 transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
-scroll_base_offset = Vector2(0, -800)
+scroll_base_offset = Vector2(0, -700)
 
-[node name="IslandParallax" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.09)
-motion_offset = Vector2(0, 80)
+[node name="SkyParallax" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+visible = false
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1280, 0)
 
-[node name="BG-1" type="Sprite2D" parent="Environment/ParallaxBackground/IslandParallax"]
+[node name="Sky-1" type="Sprite2D" parent="Environment/ParallaxBackground/SkyParallax"]
 texture_repeat = 2
-position = Vector2(4, 100)
-texture = ExtResource("11_7ekyd")
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_n8npr")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 800, 112)
+region_rect = Rect2(0, 0, 1280, 600)
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/IslandParallax"]
-position = Vector2(1086.67, 736.667)
-scale = Vector2(8.48307, 817.75)
-texture = SubResource("GradientTexture1D_41rfk")
+[node name="SeaParallax" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+visible = false
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sea-1" type="Sprite2D" parent="Environment/ParallaxBackground/SeaParallax"]
+texture_repeat = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("7_a4sy3")
+centered = false
+offset = Vector2(0, 170)
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 215)
 
 [node name="MountainParallax" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.09)
-motion_offset = Vector2(0, 180)
+visible = false
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Mountain-1" type="Sprite2D" parent="Environment/ParallaxBackground/MountainParallax"]
+texture_repeat = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("8_r1adj")
+centered = false
+offset = Vector2(0, 100)
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 487)
+
+[node name="ForestParallax" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.2)
+motion_offset = Vector2(0, 128)
 motion_mirroring = Vector2(1600, 0)
 
-[node name="BG-1" type="Sprite2D" parent="Environment/ParallaxBackground/MountainParallax"]
+[node name="BG-1" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallax"]
 texture_repeat = 2
 position = Vector2(4, -21)
-texture = ExtResource("12_vskak")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_qol0s")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 800, 373)
 
-[node name="BG-2" type="Sprite2D" parent="Environment/ParallaxBackground/MountainParallax"]
+[node name="BG-2" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallax"]
 texture_repeat = 2
 position = Vector2(4, -21)
-texture = ExtResource("12_vskak")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_qol0s")
 centered = false
 offset = Vector2(800, 0)
 region_enabled = true
 region_rect = Rect2(0, 0, 800, 373)
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/MountainParallax"]
+[node name="BG-3" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallax"]
+texture_repeat = 2
+position = Vector2(4, -21)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_qol0s")
+centered = false
+offset = Vector2(1600, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 800, 373)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallax"]
+position = Vector2(1211.67, 573.333)
+scale = Vector2(8.48307, 817.75)
+texture = SubResource("GradientTexture1D_41rfk")
+
+[node name="ForestParallax2" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+visible = false
+motion_scale = Vector2(0.5, 0.2)
+motion_offset = Vector2(0, 80)
+
+[node name="BG-1" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallax2"]
+texture_repeat = 2
+position = Vector2(4, -21)
+texture = ExtResource("10_teyda")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 800, 373)
+
+[node name="BG-2" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallax2"]
+texture_repeat = 2
+position = Vector2(4, -21)
+texture = ExtResource("10_teyda")
+centered = false
+offset = Vector2(800, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 800, 373)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallax2"]
 position = Vector2(1086.67, 736.667)
 scale = Vector2(8.48307, 817.75)
 texture = SubResource("GradientTexture1D_41rfk")
+
+[node name="ForestParallaxBackup" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+visible = false
+motion_scale = Vector2(0.5, 0.2)
+motion_offset = Vector2(0, 80)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="BG-1" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallaxBackup"]
+texture_repeat = 2
+position = Vector2(4, -21)
+texture = ExtResource("10_teyda")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 800, 373)
+
+[node name="BG-2" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallaxBackup"]
+texture_repeat = 2
+position = Vector2(4, -21)
+texture = ExtResource("10_teyda")
+centered = false
+offset = Vector2(800, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 800, 373)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ForestParallaxBackup"]
+position = Vector2(1086.67, 736.667)
+scale = Vector2(8.48307, 817.75)
+texture = SubResource("GradientTexture1D_41rfk")
+
+[node name="RockParallax" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+visible = false
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Rock-1" type="Sprite2D" parent="Environment/ParallaxBackground/RockParallax"]
+texture_repeat = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("11_cgomu")
+centered = false
+offset = Vector2(0, 508)
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 163)
 
 [node name="UI" type="Node" parent="."]
 
 [node name="Labels" type="Node" parent="UI"]
 
-[node name="HUD" parent="UI" instance=ExtResource("11_tb4kr")]
+[node name="HUD" parent="UI" instance=ExtResource("12_1ntnj")]
 
-[node name="Player" parent="." instance=ExtResource("12_yax5q")]
+[node name="Player" parent="." instance=ExtResource("13_mk14a")]
 position = Vector2(-1, 90)
 
-[node name="PlayerCamera" parent="Player" instance=ExtResource("13_wikg7")]
+[node name="PlayerCamera" parent="Player" instance=ExtResource("14_vvqkx")]
 scale = Vector2(0.6, 0.6)
 limit_left = -150
 limit_bottom = 290
 position_smoothing_enabled = true
 
-[node name="LevelTitle" parent="." instance=ExtResource("10_sgtee")]
+[node name="LevelTitle" parent="." instance=ExtResource("15_v8fvi")]
 level_title = "The Badlands"

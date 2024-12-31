@@ -4,7 +4,11 @@ class_name Player extends CharacterBody2D
 @export var data: PlayerData
 @export var modifiers: PlayerModifiers
 @onready var health_component: Health = $Health
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var punch_fx: AnimatedSprite2D = $PunchFX_AnimatedSprite2D
+@onready var land_fx: AnimatedSprite2D = $LandFX_AnimatedSprite2D
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player_collider: CollisionShape2D = $PlayerCollider2D
 @onready var invincibility_timer: Timer = $Timers/InvincibilityTimer
@@ -50,9 +54,15 @@ func _flip_sprite():
 	#Flip the sprite
 	if input_direction_x > 0:
 		animated_sprite.flip_h = false
+		punch_fx.flip_h = false
+		punch_fx.position.x = player_collider.position.x + 50
+		
 		attack_ray_cast.target_position.x = modifiers.attack_distance
 	elif input_direction_x < 0:
 		animated_sprite.flip_h = true
+		punch_fx.flip_h = true
+		punch_fx.position.x = player_collider.position.x - 45
+		
 		attack_ray_cast.target_position.x = -modifiers.attack_distance
 
 func on_finished_hurt_anim():

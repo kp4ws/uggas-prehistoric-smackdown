@@ -12,6 +12,7 @@ func physics_update(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		finished.emit(ATTACK)
 	elif player.is_on_floor():
+		player.land_fx.play('dust')
 		if is_equal_approx(input_direction_x, 0.0):
 			finished.emit(IDLE)
 		else:

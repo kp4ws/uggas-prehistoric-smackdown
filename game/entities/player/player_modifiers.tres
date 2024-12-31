@@ -5,11 +5,12 @@
 [resource]
 script = ExtResource("1_inovb")
 jump_impulse = 200.0
-air_speed = 100.0
+air_speed = 120.0
 attack_speed = 80.0
 knockback_strength = Vector2(200, 200)
 roll_impulse = 300.0
 attack_distance = 70.0
 gravity = null
-base_speed = 130.0
+base_speed = 135.0
+climb_speed = 80.0
 attack_damage = 20.0

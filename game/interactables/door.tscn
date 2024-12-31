@@ -11,7 +11,7 @@ height = 42.0
 script = ExtResource("1_xc76h")
 
 [node name="InteractionArea" parent="." instance=ExtResource("1_c3228")]
-action_name = "Enter"
+action_name = "1 Relic Required"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, -1)
