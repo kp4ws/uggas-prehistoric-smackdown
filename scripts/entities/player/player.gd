@@ -20,7 +20,10 @@ class_name Player extends CharacterBody2D
 var respawnPosition: Vector2 = Vector2.ZERO
 
 func _ready():
-	respawnPosition = self.position
+	#respawnPosition = self.position
+	if SceneManager.spawn_positions.has(SceneManager.current_scene):
+		position = SceneManager.spawn_positions[SceneManager.current_scene]
+		
 	_load_player_data()
 	_subscribe()
 	
@@ -71,6 +74,8 @@ func on_finished_hurt_anim():
 	health_component.invincible = false
 
 func respawn():
+	#TODO Needs updating (use spawn_positions from scene_manager)
+	
 	#TODO .smoothing isn't correct property
 	%MainCamera.smoothing = false
 	self.position = respawnPosition

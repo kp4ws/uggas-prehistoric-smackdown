@@ -8170,7 +8170,7 @@ sources/0 = SubResource("TileSetAtlasSource_rdyyd")
 size = Vector2(32, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pevfo"]
-size = Vector2(24, 491)
+size = Vector2(24, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olig8"]
 size = Vector2(6, 80)
@@ -8181,7 +8181,7 @@ colors = PackedColorArray(0.482353, 0.529412, 0.47451, 1, 0.482353, 0.529412, 0.
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_41rfk"]
 gradient = SubResource("Gradient_w52im")
 
-[node name="Level2" type="Node2D"]
+[node name="Level" type="Node2D"]
 script = ExtResource("1_mytss")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -8223,7 +8223,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ladders/Ladder/Area2D"]
-position = Vector2(0, -217.5)
+position = Vector2(0, -26)
 shape = SubResource("RectangleShape2D_pevfo")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Ladders/Ladder/Area2D"]
@@ -8376,6 +8376,7 @@ texture = SubResource("GradientTexture1D_41rfk")
 [node name="HUD" parent="UI" instance=ExtResource("11_tb4kr")]
 
 [node name="Player" parent="." instance=ExtResource("12_yax5q")]
+unique_name_in_owner = true
 position = Vector2(-1, 90)
 
 [node name="PlayerCamera" parent="Player" instance=ExtResource("13_wikg7")]
