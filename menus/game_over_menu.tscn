@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dva6jprc7ibpc"]
 
-[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_gutty"]
+[ext_resource type="Script" path="res://game_over_menu.gd" id="1_maclt"]
 [ext_resource type="Texture2D" uid="uid://brpj2275maxl0" path="res://asset_packs/superpowers/prehistoric-platformer/background-elements/rock-1.png" id="2_h17ri"]
 [ext_resource type="Theme" uid="uid://dp3h735v7eddt" path="res://extras/title_theme.tres" id="2_lkcl1"]
 [ext_resource type="FontFile" uid="uid://dpigja4ohhumj" path="res://asset_packs/fonts/Barrio/Barrio-Regular.ttf" id="3_nt7od"]
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_gutty")
+script = ExtResource("1_maclt")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_repeat = 2
@@ -122,5 +122,5 @@ layout_mode = 2
 theme = ExtResource("2_lkcl1")
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

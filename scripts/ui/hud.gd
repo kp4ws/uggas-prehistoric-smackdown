@@ -21,19 +21,19 @@ func _ready():
 
 func _update_lives(): 
 	#Full hearts
-	if player_data.health == 100:
+	if player_data.health == 3:
 		heart_0.texture = full_heart
 		heart_1.texture = full_heart
 		heart_2.texture = full_heart
 		
 	#2 hearts
-	elif player_data.health > 33:
+	elif player_data.health == 2:
 		heart_0.texture = full_heart
 		heart_1.texture = full_heart
 		heart_2.texture = empty_heart
 		
 	#1 heart
-	elif player_data.health > 0:
+	elif player_data.health == 1:
 		heart_0.texture = full_heart
 		heart_1.texture = empty_heart
 		heart_2.texture = empty_heart

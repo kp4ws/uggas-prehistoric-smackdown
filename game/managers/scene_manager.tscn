@@ -6,7 +6,7 @@
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_n46d1")
 main_menu_scene = "res://menus/main_menu.tscn"
-game_over_scene = "res:/menus/game_over.tscn"
+game_over_scene = "res://menus/game_over_menu.tscn"
 level_scenes = Array[String](["res://levels/level1.tscn", "res://levels/level2.tscn"])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

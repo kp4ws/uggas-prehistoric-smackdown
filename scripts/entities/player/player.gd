@@ -26,7 +26,7 @@ func _ready():
 		
 	_load_player_data()
 	_subscribe()
-	
+
 func _subscribe():
 	#TODO if my game is going to include saving/continuing, then this will need refactoring
 	GlobalSignals.start_game.connect(_reset_saved_data)
@@ -84,9 +84,7 @@ func respawn():
 func _on_die():
 	data.set_health(health_component.health) #Should be 0 at this point
 	await get_tree().create_timer(1).timeout #TODO Error between this and killzone where it doesn't actually reload the level
-	
-	#TODO Call gameover scene
-	SceneManager.load_main_menu()
+	GlobalSignals.game_over.emit()
 
 func _on_take_damage(attacker):
 	#TODO initiate damageFX and invincibility timer

@@ -16,7 +16,6 @@ func _connect_death_transition():
 	finished.emit(DEATH)
 
 func enter(previous_state_path: String, data := {}) -> void:
-	print('death')
 	player.animated_sprite.play('death')
 	sprite_flip = player.animated_sprite.flip_h
 	

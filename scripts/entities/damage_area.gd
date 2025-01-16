@@ -1,7 +1,7 @@
 extends Area2D
 class_name DamageArea
 
-@export var damage_amount = 25
+@export var damage_amount = 1
 @export var is_killzone: bool = false
 var target_health: Health = null 
 

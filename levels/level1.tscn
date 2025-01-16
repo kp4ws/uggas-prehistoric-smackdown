@@ -8402,6 +8402,7 @@ region_rect = Rect2(0, 0, 1280, 720)
 [node name="Killzone" parent="Environment" instance=ExtResource("7_hibbx")]
 position = Vector2(674, 486)
 collision_mask = 2
+damage_amount = 3
 
 [node name="HUD" parent="." instance=ExtResource("8_kei36")]
 

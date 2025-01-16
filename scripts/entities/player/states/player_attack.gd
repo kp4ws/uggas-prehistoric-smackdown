@@ -29,7 +29,6 @@ func physics_update(_delta: float) -> void:
 		print('No target health: ', target.owner.name, target.owner.get_children())
 		return
 	
-	print('Target damage')
 	if can_deal_damage:
 		target_health.take_damage(self, player.modifiers.attack_damage)
 		#TODO Refactor. This allows player to only deal damage once per attack

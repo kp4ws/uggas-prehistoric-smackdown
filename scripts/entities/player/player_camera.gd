@@ -23,7 +23,6 @@ func _process(delta):
 	offset = _randomOffset()
 
 func apply_shake():
-	print('test')
 	shake_strength = randomStrength
 
 func _randomOffset() -> Vector2:

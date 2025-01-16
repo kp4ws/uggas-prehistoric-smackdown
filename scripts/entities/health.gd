@@ -3,7 +3,7 @@ class_name Health
 
 @export var reset_health_on_ready: bool = true
 @export var invincible: bool = false
-@export var max_health: int = 100
+@export var max_health: int = 3
 var health: int
 
 signal entity_damaged(attacker)
@@ -15,8 +15,8 @@ func _ready():
 		health = max_health
 
 func take_damage(attacker, damage):
-	#If invincibility flag set, then don't take damage
-	if invincible:
+	#If invincibility flag set or already dead, then don't take damage
+	if invincible or health == 0:
 		return
 		
 	health = max(0, health - damage)

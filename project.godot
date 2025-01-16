@@ -31,7 +31,7 @@ DialogueManager="*res://scripts/interactables/dialogueManager.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=2
+window/size/mode=3
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="res://asset_packs/superpowers/prehistoric-platformer/items/1.png"
 window/snap/snap_2d_vertices_to_pixel=false
