@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4gc0on3h84s1"]
+
+[ext_resource type="Script" uid="uid://c5kc17l683y70" path="res://scripts/interactables/ladder.gd" id="1_a4mg0"]
+
+[node name="Ladder" type="Node2D"]
+script = ExtResource("1_a4mg0")

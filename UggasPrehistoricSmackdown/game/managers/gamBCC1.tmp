@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://t3ott2rc2gk2"]
+
+[ext_resource type="Script" path="res://scripts/core/game_manager.gd" id="1_7x21y"]
+[ext_resource type="PackedScene" uid="uid://bko6inldlgf6x" path="res://scenes/core/hud.tscn" id="2_6y2xn"]
+[ext_resource type="PackedScene" uid="uid://c0ad0u22ljqxd" path="res://scenes/core/music_player.tscn" id="3_dojm5"]
+[ext_resource type="PackedScene" uid="uid://uewj3o7o5uuf" path="res://scenes/core/scene_manager.tscn" id="4_n04g6"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_7x21y")
+
+[node name="HUD" parent="." instance=ExtResource("2_6y2xn")]
+
+[node name="MusicPlayer" parent="." instance=ExtResource("3_dojm5")]
+
+[node name="SceneManager" parent="." instance=ExtResource("4_n04g6")]

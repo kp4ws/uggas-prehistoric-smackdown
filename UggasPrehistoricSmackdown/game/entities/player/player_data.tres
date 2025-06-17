@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://cx2tao6mahtm"]
+
+[ext_resource type="Script" uid="uid://djg51u32qldg8" path="res://scripts/entities/player/player_data.gd" id="1_t2apk"]
+
+[resource]
+script = ExtResource("1_t2apk")
+health = 3
+score = 0

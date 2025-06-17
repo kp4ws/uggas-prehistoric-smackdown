@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://cccmb5ymc5f2j"]
+
+[ext_resource type="Script" uid="uid://pcq5xjfhsc6p" path="res://scripts/entities/enemy/enemy_stats.gd" id="1_jarh5"]
+
+[resource]
+script = ExtResource("1_jarh5")
+base_speed = 380.0
+climb_speed = 80.0
+attack_damage = 20.0

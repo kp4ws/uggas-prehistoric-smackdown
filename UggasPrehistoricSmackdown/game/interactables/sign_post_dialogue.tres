@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bh5mmc8hcxvs2"]
+
+[ext_resource type="Script" uid="uid://ddtfyd5mbx6ii" path="res://scripts/interactables/dialogue.gd" id="1_smwkp"]
+
+[resource]
+script = ExtResource("1_smwkp")
+lines = Array[String](["	
+[Left/Right]: MOVE
+	"])

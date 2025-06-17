@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf618bsoecupp"]
+
+[sub_resource type="Resource" id="Resource_ibtar"]
+metadata/__load_path__ = "res://asset_packs/brackeys_platformer_assets/sprites/platforms.png"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nmk6"]
+size = Vector2(32, 8)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("Resource_ibtar")
+region_enabled = true
+region_rect = Rect2(16, 0, 32, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4nmk6")
+one_way_collision = true

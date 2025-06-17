@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cdn5lodrjkpck"]
+
+[ext_resource type="FontFile" uid="uid://b3kqrcg1q5xi0" path="res://asset_packs/fonts/Kirang_Haerang/KirangHaerang-Regular.ttf" id="1_y50wu"]
+
+[resource]
+font = ExtResource("1_y50wu")
